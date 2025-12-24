@@ -29,6 +29,9 @@ from isaaclab.sim.spawners.from_files.from_files_cfg import GroundPlaneCfg, UsdF
 from isaaclab.utils import configclass
 from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR, ISAACLAB_NUCLEUS_DIR
 
+# Import the new ROS2 Bridge device
+from isaaclab.devices.ros2_bridge_device import ROS2BridgeDeviceCfg
+
 from . import mdp
 
 from isaaclab_assets.robots.unitree import G1_INSPIRE_FTP_CFG  # isort: skip
@@ -404,6 +407,22 @@ class PickPlaceG1InspireFTPEnvCfg(ManagerBasedRLEnvCfg):
                     ],
                     sim_device=self.sim.device,
                     xr_cfg=self.xr,
+                ),
+                # Add ROS2 Bridge device for teleoperation
+                "ros2_bridge_gloves": ROS2BridgeDeviceCfg(
+                    left_hand_topic="/cb_left_hand_control_cmd",
+                    right_hand_topic="/cb_right_hand_control_cmd",
+                    message_timeout=1.0,
+                    use_isaacsim_bridge=True,
+                    retargeters=[
+                        UnitreeG1RetargeterCfg(
+                            enable_visualization=True,
+                            num_open_xr_hand_joints=2 * 26,
+                            sim_device=self.sim.device,
+                            hand_joint_names=self.actions.pink_ik_cfg.hand_joint_names,
+                        ),
+                    ],
+                    sim_device=self.sim.device,
                 ),
             },
         )

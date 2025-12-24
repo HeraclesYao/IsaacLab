@@ -1,0 +1,36 @@
+Creating window for environment.
+ManagerLiveVisualizer cannot be created for manager: command_manager, Manager does not exist
+ManagerLiveVisualizer cannot be created for manager: reward_manager, Manager does not exist
+ManagerLiveVisualizer cannot be created for manager: curriculum_manager, Manager does not exist
+ManagerLiveVisualizer cannot be created for manager: termination_manager, Manager does not exist
+✓ Created environment
+Isaac Sim ROS2 Bridge is available. Setting up OmniGraph nodes...
+2025-12-24T10:57:42Z [16,680ms] [Warning] [omni.timeline.plugin] Deprecated: direct use of ITimeline callbacks is deprecated. Use ITimeline::getTimeline (Python: omni.timeline.get_timeline_interface) instead.
+ROS2 subscriber nodes created successfully
+ROS2 Bridge device initialized. Subscribed to:
+  - Left hand: /cb_left_hand_control_cmd
+  - Right hand: /cb_right_hand_control_cmd
+✓ Created ROS2 teleoperation device: ROS2BridgeDevice
+ROS2 Bridge device reset
+
+============================================================
+Starting ROS2 Communication Verification
+============================================================
+Make sure your ROS2 hand tracking nodes are running!
+Waiting for joint data on topics:
+  - Left hand: /cb_left_hand_control_cmd
+  - Right hand: /cb_right_hand_control_cmd
+Press Ctrl+C to stop
+============================================================
+2025-12-24 18:57:42.603 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7413: open_and_lock_file failed -> Function open_port_internal
+Error in simulation loop: not enough values to unpack (expected 5, got 2)
+Traceback (most recent call last):
+  File "/home/yaoyh-4090/IsaacLab/scripts/environments/teleoperation/teleop_ros2_verify.py", line 133, in main
+    obs, reward, terminated, truncated, info = env.step(commands)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 5, got 2)
+
+Cleaning up...
+ROS2 communication verification completed.
+Final message count: Left=0, Right=0
+[17.697s] Simulation App Shutting Down

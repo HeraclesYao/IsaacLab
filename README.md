@@ -139,3 +139,62 @@ If you use Isaac Lab in your research, please cite the technical report:
 
 Isaac Lab development initiated from the [Orbit](https://isaac-orbit.github.io/) framework.
 We gratefully acknowledge the authors of Orbit for their foundational contributions.
+
+
+## 追加task
+```bash
+
+export ROS_DISTRO=humble
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/yaoyh-4090/anaconda3/envs/env_isaaclab5/lib/python3.11/site-packages/isaacsim/exts/isaacsim.ros2.bridge/humble/lib
+
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_device.py \
+    --task Isaac-PickPlace-G1-InspireFTP-Abs-v0 \
+    --device_name ros2_gloves \
+    --num_envs 1
+
+cd /home/yaoyh-4090/IsaacLab
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_bridge_device.py \
+    --task Isaac-PickPlace-G1-InspireFTP-Abs-v0 \
+    --device_name ros2_bridge_gloves \
+    --num_envs 1
+
+
+# ./isaaclab.sh -p scripts/environments/teleoperation/teleop_se3_agent.py \
+#     --task Isaac-PickPlace-GR1T2-Abs-v0 \
+#     --teleop_device handtracking \
+#     --enable_pinocchio
+
+
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_se3_agent.py --task Isaac-Stack-Cube-Franka-IK-Rel-v0 --num_envs 1 --teleop_device keyboard
+
+export ROS_DOMAIN_ID=0
+export ROS_LOCALHOST_ONLY=0
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py --enable isaacsim.ros2.bridge
+```
+
+## 编译灵巧手接收程序
+```bash
+conda deactivate
+cd /home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2
+source /opt/ros/humble/setup.bash
+colcon build
+```
+
+## 启动灵巧手接收程序。
+```bash
+conda deactivate
+cd /home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2
+source /opt/ros/humble/setup.bash
+source ./install/setup.bash
+ros2 run linkerhand_retarget handretarget
+
+
+# 监听话题，确认有数据发布
+ros2 topic echo /cb_left_hand_control_cmd
+ros2 topic echo /cb_right_hand_control_cmd
+
+# 检查话题信息
+ros2 topic info /cb_left_hand_control_cmd
+ros2 topic info /cb_right_hand_control_cmd
+```
