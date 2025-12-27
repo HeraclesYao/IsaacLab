@@ -168,9 +168,20 @@ cd /home/yaoyh-4090/IsaacLab
 
 ./isaaclab.sh -p scripts/environments/teleoperation/teleop_se3_agent.py --task Isaac-Stack-Cube-Franka-IK-Rel-v0 --num_envs 1 --teleop_device keyboard
 
+souce /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=0
 export ROS_LOCALHOST_ONLY=0
-./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py --enable isaacsim.ros2.bridge
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py
+
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py \
+     --task Isaac-PickPlace-G1-InspireFTP-Abs-v0 \
+     --device_name ros2_gloves \
+     --num_envs 1
+
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py \
+    --task Isaac-Linkerhand-v0 \
+    --device_name ros2_gloves \
+    --num_envs 1
 ```
 
 ## 编译灵巧手接收程序
@@ -189,6 +200,11 @@ source /opt/ros/humble/setup.bash
 source ./install/setup.bash
 ros2 run linkerhand_retarget handretarget
 
+# 查看占用端口的进程
+sudo netstat -tulpn | grep :8000  # 替换为实际端口号
+
+# 杀死占用端口的进程
+sudo kill -9 <PID>
 
 # 监听话题，确认有数据发布
 ros2 topic echo /cb_left_hand_control_cmd
@@ -197,4 +213,9 @@ ros2 topic echo /cb_right_hand_control_cmd
 # 检查话题信息
 ros2 topic info /cb_left_hand_control_cmd
 ros2 topic info /cb_right_hand_control_cmd
+```
+
+## 创建新task Isaac-Linkhand-Direct-v0 Isaac-Linkerhand-v0
+```bash
+./isaaclab.sh --new
 ```

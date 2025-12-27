@@ -231,69 +231,58 @@ class ROS2BridgeDevice(DeviceBase):
         """
         self._callbacks[key] = func
 
-    def _get_raw_data(self) -> Dict[str, Optional[torch.Tensor]]:
+    def _get_raw_data(self) -> torch.Tensor:
         """Get raw joint data from ROS2 Bridge subscribers.
         
         Returns:
-            Dictionary containing left and right hand joint data.
+            torch.Tensor: Raw joint data with shape (1, 50) containing both hands (25 left + 25 right)
         """
         self._check_message_timeout()
-        
-        # Get data from OmniGraph nodes if available
+
+        # 获取左手数据（25个关节）
+        left_data = None
         if self._left_hand_node is not None:
             left_data = self._get_joint_data_from_node(self._left_hand_node)
             if left_data is not None:
                 self._left_hand_data = left_data
                 self._last_message_time["left"] = time.time()
-                
+        
+        # 获取右手数据（25个关节）
+        right_data = None
         if self._right_hand_node is not None:
             right_data = self._get_joint_data_from_node(self._right_hand_node)
             if right_data is not None:
                 self._right_hand_data = right_data
                 self._last_message_time["right"] = time.time()
         
-        return {
-            "left_hand": self._left_hand_data,
-            "right_hand": self._right_hand_data
-        }
+        # 合并双手数据：左手25个关节 + 右手25个关节 = 总共50个关节
+        if self._left_hand_data is not None and self._right_hand_data is not None:
+            # 如果双手数据都可用，合并它们
+            combined_data = torch.cat([self._left_hand_data, self._right_hand_data], dim=1)
+            return combined_data
+        elif self._left_hand_data is not None:
+            # 只有左手数据可用，右手用零填充
+            right_zeros = torch.zeros_like(self._left_hand_data)
+            combined_data = torch.cat([self._left_hand_data, right_zeros], dim=1)
+            return combined_data
+        elif self._right_hand_data is not None:
+            # 只有右手数据可用，左手用零填充
+            left_zeros = torch.zeros_like(self._right_hand_data)
+            combined_data = torch.cat([left_zeros, self._right_hand_data], dim=1)
+            return combined_data
+        else:
+            # 都没有数据，返回50个零
+            return torch.zeros(1, 50, dtype=torch.float32)
 
     def advance(self) -> torch.Tensor:
         """Get the latest commands from the ROS2 Bridge device.
         
         Returns:
-            torch.Tensor: Joint commands with shape (1, 38) matching Unitree G1 robot.
+            torch.Tensor: Joint commands after retargeting
         """
-        raw_data = self._get_raw_data()
-        
-        # Check if we have valid data from both hands
-        if (raw_data["left_hand"] is not None and 
-            raw_data["right_hand"] is not None):
-            
-            # Each hand has 7 joints from ROS message
-            # We need to map this to the robot's 38 joints (14 arm + 24 hand)
-            left_arm_data = raw_data["left_hand"]  # Shape: (1, 7) - left arm joints
-            right_arm_data = raw_data["right_hand"]  # Shape: (1, 7) - right arm joints
-            
-            # Create full 38-dimensional control command
-            # Structure: [left_arm(7), right_arm(7), left_hand(12), right_hand(12)]
-            full_command = torch.zeros(1, 38, dtype=torch.float32)
-            
-            # Map left arm joints (positions 0-6)
-            if left_arm_data.shape[1] >= 7:
-                full_command[0, 0:7] = left_arm_data[0, 0:7]
-            
-            # Map right arm joints (positions 7-13)  
-            if right_arm_data.shape[1] >= 7:
-                full_command[0, 7:14] = right_arm_data[0, 0:7]
-            
-            # For hand joints (positions 14-37), set to default positions (0.0)
-            # These will be controlled separately once you update your ROS message
-            
-            return full_command
-            
-        else:
-            # Return zeros with correct shape (1, 38) when no data is available
-            return torch.zeros(1, 38)
+        # Use the base class advance() method which automatically calls retargeters
+        # This will call _get_raw_data() and then apply retargeting
+        return super().advance()
 
     def __del__(self):
         """Clean up ROS2 Bridge resources."""

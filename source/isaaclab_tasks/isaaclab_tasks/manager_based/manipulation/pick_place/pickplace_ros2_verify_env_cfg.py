@@ -20,14 +20,13 @@ from isaaclab.managers import TerminationTermCfg as DoneTerm
 from isaaclab.managers import EventTermCfg as EventTerm
 from isaaclab.scene import InteractiveSceneCfg
 from isaaclab.sim.spawners.from_files.from_files_cfg import GroundPlaneCfg, UsdFileCfg
-from isaaclab.utils import configclass
 from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
-
+from isaaclab.utils import configclass
 # Import the correct ROS2 device - use ROS2BridgeDeviceCfg from ros2_bridge_device
 from isaaclab.devices.ros2_bridge_device import ROS2BridgeDeviceCfg
 
 from isaaclab_assets.robots.unitree import G1_INSPIRE_FTP_CFG  # isort: skip
-
+from .g1_ros2_retargeterCfg import G1RetargeterCfg
 
 ##
 # Simplified Scene definition
@@ -109,30 +108,30 @@ class SimpleActionsCfg:
             "left_wrist_roll_joint",
             "left_wrist_pitch_joint",
             # Hand joints (24 joints total for both hands)
-            "L_index_proximal_joint",
-            "L_middle_proximal_joint",
-            "L_pinky_proximal_joint",
-            "L_ring_proximal_joint",
-            "L_thumb_proximal_yaw_joint",
-            "R_index_proximal_joint",
-            "R_middle_proximal_joint",
-            "R_pinky_proximal_joint",
-            "R_ring_proximal_joint",
-            "R_thumb_proximal_yaw_joint",
-            "L_index_intermediate_joint",
-            "L_middle_intermediate_joint",
-            "L_pinky_intermediate_joint",
-            "L_ring_intermediate_joint",
-            "L_thumb_proximal_pitch_joint",
-            "R_index_intermediate_joint",
-            "R_middle_intermediate_joint",
-            "R_pinky_intermediate_joint",
-            "R_ring_intermediate_joint",
-            "R_thumb_proximal_pitch_joint",
-            "L_thumb_intermediate_joint",
-            "R_thumb_intermediate_joint",
-            "L_thumb_distal_joint",
-            "R_thumb_distal_joint",
+            "L_index_proximal_joint",               # index 14 左手食指
+            "L_middle_proximal_joint",               # index 15 左手中指
+            "L_pinky_proximal_joint",               # index 16 左手小指
+            "L_ring_proximal_joint",               # index 17 左手无名指
+            "L_thumb_proximal_yaw_joint",               # index 18 左手拇指
+            "R_index_proximal_joint",               # index 19 右手食指
+            "R_middle_proximal_joint",               # index 20 右手中指
+            "R_pinky_proximal_joint",               # index 21 右手小指
+            "R_ring_proximal_joint",               # index 22 右手无名指
+            "R_thumb_proximal_yaw_joint",               # index 23 右手拇指
+            "L_index_intermediate_joint",               # index 24 左手食指
+            "L_middle_intermediate_joint",               # index 25 左手中指
+            "L_pinky_intermediate_joint",               # index 26 左手小指
+            "L_ring_intermediate_joint",               # index 27 左手无名指
+            "L_thumb_proximal_pitch_joint",               # index 28 左手拇指
+            "R_index_intermediate_joint",               # index 29 右手食指
+            "R_middle_intermediate_joint",               # index 30 右手中指
+            "R_pinky_intermediate_joint",               # index 31 右手小指
+            "R_ring_intermediate_joint",               # index 32 右手无名指
+            "R_thumb_proximal_pitch_joint",               # index 33 右手拇指
+            "L_thumb_intermediate_joint",               # index 34
+            "R_thumb_intermediate_joint",               # index 35
+            "L_thumb_distal_joint",               # index 36
+            "R_thumb_distal_joint",               # index 37
         ],
         scale=1.0,
     )
@@ -228,6 +227,8 @@ class PickPlaceG1ROS2VerifyEnvCfg(ManagerBasedRLEnvCfg):
                     #         hand_joint_names=self.actions.joint_pos_cfg.joint_names[-24:],  # Last 24 are hand joints
                     #     ),
                     # ],
+                    # 添加数据转换器
+                    retargeters=[G1RetargeterCfg()]
                 ),
             },
         )

@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="g1_29dof_inspire_hand">
+  <joint name="L_index_intermediate_joint" type="revolute">
+    <origin xyz="0.0024651 -0.0320426 0.0010115" rpy="-0.000055 -0.0000532 0.0001936"/>
+    <parent link="L_index_proximal"/>
+    <child link="L_index_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="L_index_proximal_joint" type="revolute">
+    <origin xyz="0.17803 0.0032765 0.0322655" rpy="-3.1066856 0. -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_yaw_link"/>
+    <child link="L_index_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="L_middle_intermediate_joint" type="revolute">
+    <origin xyz="0.002464 -0.0320418 0.0010115" rpy="-0.0000549 -0.00006 0.0001916"/>
+    <parent link="L_middle_proximal"/>
+    <child link="L_middle_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="L_middle_proximal_joint" type="revolute">
+    <origin xyz="0.1786 0.0032765 0.0129475" rpy="-3.1415927 0. -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_yaw_link"/>
+    <child link="L_middle_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="L_pinky_intermediate_joint" type="revolute">
+    <origin xyz="0.0024611 -0.0320407 0.0010115" rpy="-0.0000549 -0.0000797 0.0001842"/>
+    <parent link="L_pinky_proximal"/>
+    <child link="L_pinky_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="L_pinky_proximal_joint" type="revolute">
+    <origin xyz="0.17721 0.0032765 -0.0254905" rpy="3.0368726 0. -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_yaw_link"/>
+    <child link="L_pinky_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="L_ring_intermediate_joint" type="revolute">
+    <origin xyz="0.0024627 -0.0320413 0.0010115" rpy="-0.0000549 -0.0000699 0.0001883"/>
+    <parent link="L_ring_proximal"/>
+    <child link="L_ring_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="L_ring_proximal_joint" type="revolute">
+    <origin xyz="0.17841 0.0032765 -0.0062897" rpy="3.0892327 0. -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_yaw_link"/>
+    <child link="L_ring_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="L_thumb_distal_joint" type="revolute">
+    <origin xyz="-0.020248 -0.010156 0.0012 " rpy="0. 0. 0."/>
+    <parent link="L_thumb_intermediate"/>
+    <child link="L_thumb_distal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.24" upper="1.44" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="L_thumb_intermediate_joint" type="revolute">
+    <origin xyz="-0.04407 -0.034553 0.0008 " rpy="0.0000001 -0. 0. "/>
+    <parent link="L_thumb_proximal"/>
+    <child link="L_thumb_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.16" upper="0.9599999" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="L_thumb_proximal_pitch_joint" type="revolute">
+    <origin xyz="0.0099797 0.0098455 -0.0089029" rpy="-1.5705945 0.0000219 -2.9721427"/>
+    <parent link="L_thumb_proximal_base"/>
+    <child link="L_thumb_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="0.5" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="L_thumb_proximal_yaw_joint" type="revolute">
+    <origin xyz="0.1106 -0.0139688 0.0204475" rpy="-1.5707946 -1.5707927 -1.5707946"/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_yaw_link"/>
+    <child link="L_thumb_proximal_base"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.1" upper="1.2999998" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="R_index_intermediate_joint" type="revolute">
+    <origin xyz="-0.002656 0.0320275 -0.0010116" rpy="-0.000055 -0.0000532 0.0001937"/>
+    <parent link="R_index_proximal"/>
+    <child link="R_index_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="R_index_proximal_joint" type="revolute">
+    <origin xyz="0.17803 -0.0032766 0.0322655" rpy="0.0348927 0.0000025 -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_yaw_link"/>
+    <child link="R_index_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="R_middle_intermediate_joint" type="revolute">
+    <origin xyz="-0.002464 0.0320418 -0.0010115" rpy="-0.0000549 -0.00006 0.0001916"/>
+    <parent link="R_middle_proximal"/>
+    <child link="R_middle_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="R_middle_proximal_joint" type="revolute">
+    <origin xyz="0.1786 -0.0032766 0.0129475" rpy="-0.0000072 0.0000025 -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_yaw_link"/>
+    <child link="R_middle_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="R_pinky_intermediate_joint" type="revolute">
+    <origin xyz="-0.0024611 0.0320407 -0.0010115" rpy="-0.0000549 -0.0000796 0.0001843"/>
+    <parent link="R_pinky_proximal"/>
+    <child link="R_pinky_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="R_pinky_proximal_joint" type="revolute">
+    <origin xyz="0.17721 -0.0032765 -0.0254905" rpy="-0.1046926 0.0000025 -1.5707964"/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_yaw_link"/>
+    <child link="R_pinky_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="R_ring_intermediate_joint" type="revolute">
+    <origin xyz="-0.0024627 0.0320413 -0.0010115" rpy="-0.0000549 -0.0000699 0.0001883"/>
+    <parent link="R_ring_proximal"/>
+    <child link="R_ring_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.34" upper="2.04" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="R_ring_proximal_joint" type="revolute">
+    <origin xyz="0.17841 -0.0032765 -0.0062897" rpy="-0.0523926 0.0000025 -1.5707965"/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_yaw_link"/>
+    <child link="R_ring_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="1.7" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="R_thumb_distal_joint" type="revolute">
+    <origin xyz="0.020248 0.010156 -0.0012 " rpy="0. 0. 0."/>
+    <parent link="R_thumb_intermediate"/>
+    <child link="R_thumb_distal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.24" upper="1.44" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="R_thumb_intermediate_joint" type="revolute">
+    <origin xyz="0.04407 0.034553 -0.0008 " rpy="-0. 0.0000001 0.0000001"/>
+    <parent link="R_thumb_proximal"/>
+    <child link="R_thumb_intermediate"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.16" upper="0.9599999" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="R_thumb_proximal_pitch_joint" type="revolute">
+    <origin xyz="0.0088028 0.0109132 0.0092532" rpy="-1.5705934 -0.0000008 0.2829526"/>
+    <parent link="R_thumb_proximal_base"/>
+    <child link="R_thumb_proximal"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="0." upper="0.5" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="R_thumb_proximal_yaw_joint" type="revolute">
+    <origin xyz="0.1106 0.0139687 0.0204475" rpy="1.5571003 -1.5707902 -1.557104 "/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_yaw_link"/>
+    <child link="R_thumb_proximal_base"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-0.1" upper="1.2999998" effort="1." velocity="0.5"/>
+  </joint>
+  <joint name="left_ankle_pitch_joint" type="revolute">
+    <origin xyz="0. -0.0000944 -0.30001 " rpy="0. -0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_knee_link"/>
+    <child link="g1_29dof_rev_1_0_left_ankle_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-0.87267" upper="0.5235999" effort="35." velocity="29.9999984"/>
+  </joint>
+  <joint name="left_ankle_roll_joint" type="revolute">
+    <origin xyz="0. 0. -0.017558" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_ankle_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_left_ankle_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.2618" upper="0.2618" effort="35." velocity="29.9999984"/>
+  </joint>
+  <joint name="left_elbow_joint" type="revolute">
+    <origin xyz="0.0157785 0.0000062 -0.0805176" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_shoulder_yaw_link"/>
+    <child link="g1_29dof_rev_1_0_left_elbow_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-1.0471999" upper="2.0943998" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="left_hip_pitch_joint" type="revolute">
+    <origin xyz="0. 0.064452 -0.1027 " rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_pelvis"/>
+    <child link="g1_29dof_rev_1_0_left_hip_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-2.5306997" upper="2.8797999" effort="88." velocity="31.9999982"/>
+  </joint>
+  <joint name="left_hip_roll_joint" type="revolute">
+    <origin xyz="0. 0.052 -0.030465" rpy="0. -0.1749 0. "/>
+    <parent link="g1_29dof_rev_1_0_left_hip_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_left_hip_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.5235999" upper="2.9670997" effort="139." velocity="19.9999989"/>
+  </joint>
+  <joint name="left_hip_yaw_joint" type="revolute">
+    <origin xyz="0.025001 0. -0.12412 " rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_hip_roll_link"/>
+    <child link="g1_29dof_rev_1_0_left_hip_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.7576" upper="2.7576" effort="88." velocity="31.9999982"/>
+  </joint>
+  <joint name="left_knee_joint" type="revolute">
+    <origin xyz="-0.078273 0.0021489 -0.17734 " rpy="0. 0.1749 0. "/>
+    <parent link="g1_29dof_rev_1_0_left_hip_yaw_link"/>
+    <child link="g1_29dof_rev_1_0_left_knee_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-0.087267" upper="2.8797999" effort="139." velocity="19.9999989"/>
+  </joint>
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.0039563 0.10022 0.24778 " rpy="0.27931 0.0000549 -0.0001916"/>
+    <parent link="torso_link"/>
+    <child link="g1_29dof_rev_1_0_left_shoulder_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-3.0891998" upper="2.6703998" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="left_shoulder_roll_joint" type="revolute">
+    <origin xyz="0. 0.038 -0.013831" rpy="-0.2792498 0. -0. "/>
+    <parent link="g1_29dof_rev_1_0_left_shoulder_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_left_shoulder_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-1.5882" upper="2.2514998" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="left_shoulder_yaw_joint" type="revolute">
+    <origin xyz="0.0000045 0.0062338 -0.1032004" rpy="-0.0000602 -0.0000549 0.0001916"/>
+    <parent link="g1_29dof_rev_1_0_left_shoulder_roll_link"/>
+    <child link="g1_29dof_rev_1_0_left_shoulder_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.618" upper="2.618" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="left_wrist_pitch_joint" type="revolute">
+    <origin xyz="0.0379998 -0.0000186 -0.0000054" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_roll_link"/>
+    <child link="g1_29dof_rev_1_0_left_wrist_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-1.6144296" upper="1.6144296" effort="5." velocity="21.9999988"/>
+  </joint>
+  <joint name="left_wrist_roll_joint" type="revolute">
+    <origin xyz="0.0999956 0.0018897 -0.0100009" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_elbow_link"/>
+    <child link="g1_29dof_rev_1_0_left_wrist_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-1.9722219" upper="1.9722219" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="left_wrist_yaw_joint" type="revolute">
+    <origin xyz="0.046 -0.0000073 -0.0000021" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_left_wrist_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_left_wrist_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-1.6144296" upper="1.6144296" effort="5." velocity="21.9999988"/>
+  </joint>
+  <joint name="right_ankle_pitch_joint" type="revolute">
+    <origin xyz="0. 0.0000944 -0.30001 " rpy="0. -0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_knee_link"/>
+    <child link="g1_29dof_rev_1_0_right_ankle_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-0.87267" upper="0.5235999" effort="35." velocity="29.9999984"/>
+  </joint>
+  <joint name="right_ankle_roll_joint" type="revolute">
+    <origin xyz="0. 0. -0.017558" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_ankle_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_right_ankle_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.2618" upper="0.2618" effort="35." velocity="29.9999984"/>
+  </joint>
+  <joint name="right_elbow_joint" type="revolute">
+    <origin xyz="0.0157785 -0.0000062 -0.0805176" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_shoulder_yaw_link"/>
+    <child link="g1_29dof_rev_1_0_right_elbow_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-1.0471999" upper="2.0943998" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="right_hip_pitch_joint" type="revolute">
+    <origin xyz="0. -0.064452 -0.1027 " rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_pelvis"/>
+    <child link="g1_29dof_rev_1_0_right_hip_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-2.5306997" upper="2.8797999" effort="88." velocity="31.9999982"/>
+  </joint>
+  <joint name="right_hip_roll_joint" type="revolute">
+    <origin xyz="0. -0.052 -0.030465" rpy="0. -0.1749 0. "/>
+    <parent link="g1_29dof_rev_1_0_right_hip_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_right_hip_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-2.9670997" upper="0.5235999" effort="139." velocity="19.9999989"/>
+  </joint>
+  <joint name="right_hip_yaw_joint" type="revolute">
+    <origin xyz="0.025001 0. -0.12412 " rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_hip_roll_link"/>
+    <child link="g1_29dof_rev_1_0_right_hip_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.7576" upper="2.7576" effort="88." velocity="31.9999982"/>
+  </joint>
+  <joint name="right_knee_joint" type="revolute">
+    <origin xyz="-0.078273 -0.0021489 -0.17734 " rpy="0. 0.1749 0. "/>
+    <parent link="g1_29dof_rev_1_0_right_hip_yaw_link"/>
+    <child link="g1_29dof_rev_1_0_right_knee_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-0.087267" upper="2.8797999" effort="139." velocity="19.9999989"/>
+  </joint>
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.0039563 -0.10021 0.24778 " rpy="-0.27931 0.0000549 0.0001916"/>
+    <parent link="torso_link"/>
+    <child link="g1_29dof_rev_1_0_right_shoulder_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-3.0891998" upper="2.6703998" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="right_shoulder_roll_joint" type="revolute">
+    <origin xyz="0. -0.038 -0.013831" rpy="0.2792498 0. 0. "/>
+    <parent link="g1_29dof_rev_1_0_right_shoulder_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_right_shoulder_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-2.2514998" upper="1.5882" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="right_shoulder_yaw_joint" type="revolute">
+    <origin xyz="0.0000045 -0.0062338 -0.1032004" rpy="0.0000602 -0.0000549 -0.0001916"/>
+    <parent link="g1_29dof_rev_1_0_right_shoulder_roll_link"/>
+    <child link="g1_29dof_rev_1_0_right_shoulder_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.618" upper="2.618" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="right_wrist_pitch_joint" type="revolute">
+    <origin xyz="0.0379998 0.0000186 -0.0000054" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_roll_link"/>
+    <child link="g1_29dof_rev_1_0_right_wrist_pitch_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-1.6144296" upper="1.6144296" effort="5." velocity="21.9999988"/>
+  </joint>
+  <joint name="right_wrist_roll_joint" type="revolute">
+    <origin xyz="0.0999956 -0.0018897 -0.0100009" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_elbow_link"/>
+    <child link="g1_29dof_rev_1_0_right_wrist_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-1.9722219" upper="1.9722219" effort="25." velocity="37.0000001"/>
+  </joint>
+  <joint name="right_wrist_yaw_joint" type="revolute">
+    <origin xyz="0.046 0.0000073 -0.0000021" rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_right_wrist_pitch_link"/>
+    <child link="g1_29dof_rev_1_0_right_wrist_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-1.6144296" upper="1.6144296" effort="5." velocity="21.9999988"/>
+  </joint>
+  <joint name="root_joint" type="fixed">
+    <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0"/>
+    <child link="g1_29dof_rev_1_0_pelvis"/>
+  </joint>
+  <joint name="waist_pitch_joint" type="revolute">
+    <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+    <parent link="waist_roll_link"/>
+    <child link="torso_link"/>
+    <axis xyz="0. 1. 0."/>
+    <limit lower="-0.5199999" upper="0.5199999" effort="35." velocity="29.9999984"/>
+  </joint>
+  <joint name="waist_roll_joint" type="revolute">
+    <origin xyz="-0.0039635 0. 0.044 " rpy="0. 0. 0."/>
+    <parent link="waist_yaw_link"/>
+    <child link="waist_roll_link"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.5199999" upper="0.5199999" effort="35." velocity="29.9999984"/>
+  </joint>
+  <joint name="waist_yaw_joint" type="revolute">
+    <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+    <parent link="g1_29dof_rev_1_0_pelvis"/>
+    <child link="waist_yaw_link"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.618" upper="2.618" effort="88." velocity="31.9999982"/>
+  </joint>
+  <link name="L_index_intermediate">
+    <inertial>
+      <origin xyz="0.0021753 -0.019567 -0.005 " rpy="0. 0. 0."/>
+      <mass value="0.0045682"/>
+      <inertia ixx="0.0000008" ixy="-0.0000001" ixz="0." iyy="0.0000001" iyz="0." izz="0.0000008"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_index_intermediate_visuals_Link16_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.005 -0.04 0.004" rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_index_intermediate_collisions_Link16_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_index_intermediate_collisions_Link16_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_index_proximal">
+    <inertial>
+      <origin xyz="0.0012971 -0.011934 -0.0059998" rpy="0. 0. 0."/>
+      <mass value="0.0042405"/>
+      <inertia ixx="0.0000007" ixy="0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.000036 -0.0000021 0.0000097" rpy="-3.1415377 0.0000532 -3.1413991"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_index_proximal_visuals_Link15_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.000036 -0.0000021 0.0000097" rpy="-3.1415377 0.0000532 -3.1413991"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_index_proximal_collisions_Link15_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.000036 -0.0000021 0.0000097" rpy="-3.1415377 0.0000532 -3.1413991"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_index_proximal_collisions_Link15_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_middle_intermediate">
+    <inertial>
+      <origin xyz="0.001921 -0.020796 -0.0049999" rpy="0. 0. 0."/>
+      <mass value="0.0050397"/>
+      <inertia ixx="0.000001" ixy="-0.0000001" ixz="-0." iyy="0.0000001" iyz="0." izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. 0. 0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_middle_intermediate_visuals_Link18_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.005 -0.045 0.004" rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. 0. 0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_middle_intermediate_collisions_Link18_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. 0. 0." rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_middle_intermediate_collisions_Link18_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_middle_proximal">
+    <inertial>
+      <origin xyz="0.0012971 -0.011934 -0.0059999" rpy="0. 0. 0."/>
+      <mass value="0.0042405"/>
+      <inertia ixx="0.0000007" ixy="0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.000035 -0.0000014 0.0000096" rpy="-3.1415377 0.00006 -3.141401 "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_middle_proximal_visuals_Link17_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.000035 -0.0000014 0.0000096" rpy="-3.1415377 0.00006 -3.141401 "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_middle_proximal_collisions_Link17_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.000035 -0.0000014 0.0000096" rpy="-3.1415377 0.00006 -3.141401 "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_middle_proximal_collisions_Link17_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_pinky_intermediate">
+    <inertial>
+      <origin xyz="0.0024788 -0.016208 -0.0050001" rpy="0. 0. 0."/>
+      <mass value="0.0036036"/>
+      <inertia ixx="0.0000004" ixy="-0." ixz="0." iyy="0.0000001" iyz="0." izz="0.0000004"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_pinky_intermediate_visuals_Link22_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.002 -0.032 0.004" rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_pinky_intermediate_collisions_Link22_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_pinky_intermediate_collisions_Link22_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_pinky_proximal">
+    <inertial>
+      <origin xyz="0.0012971 -0.011934 -0.0059999" rpy="0. 0. 0."/>
+      <mass value="0.0042405"/>
+      <inertia ixx="0.0000007" ixy="0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0000324 -0.0000002 0.0000096" rpy="-3.1415377 0.0000797 -3.1414084"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_pinky_proximal_visuals_Link21_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0000324 -0.0000002 0.0000096" rpy="-3.1415377 0.0000797 -3.1414084"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_pinky_proximal_collisions_Link21_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0000324 -0.0000002 0.0000096" rpy="-3.1415377 0.0000797 -3.1414084"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_pinky_proximal_collisions_Link21_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_ring_intermediate">
+    <inertial>
+      <origin xyz="0.0021753 -0.019567 -0.005 " rpy="0. 0. 0."/>
+      <mass value="0.0045682"/>
+      <inertia ixx="0.0000008" ixy="-0.0000001" ixz="0." iyy="0.0000001" iyz="-0." izz="0.0000008"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. 0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_ring_intermediate_visuals_Link20_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.002 -0.04 0.004" rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. 0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_ring_intermediate_collisions_Link20_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. 0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_ring_intermediate_collisions_Link20_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_ring_proximal">
+    <inertial>
+      <origin xyz="0.0012971 -0.011934 -0.0059999" rpy="0. 0. 0."/>
+      <mass value="0.0042405"/>
+      <inertia ixx="0.0000007" ixy="0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0000338 -0.0000008 0.0000096" rpy="-3.1415377 0.0000699 -3.1414044"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_ring_proximal_visuals_Link19_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0000338 -0.0000008 0.0000096" rpy="-3.1415377 0.0000699 -3.1414044"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_ring_proximal_collisions_Link19_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0000338 -0.0000008 0.0000096" rpy="-3.1415377 0.0000699 -3.1414044"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_ring_proximal_collisions_Link19_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_thumb_distal">
+    <inertial>
+      <origin xyz="0.0092888 -0.004953 -0.0060033" rpy="0. 0. 0."/>
+      <mass value="0.003344"/>
+      <inertia ixx="0.0000001" ixy="0.0000001" ixz="-0." iyy="0.0000001" iyz="0." izz="0.0000002"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_distal_visuals_Link14_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.015 -0.013 0.004" rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_distal_collisions_Link14_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_distal_collisions_Link14_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_thumb_intermediate">
+    <inertial>
+      <origin xyz="0.0095531 0.0016282 -0.0072002" rpy="0. 0. 0."/>
+      <mass value="0.0037844"/>
+      <inertia ixx="0.0000004" ixy="0.0000001" ixz="-0." iyy="0.0000003" iyz="-0." izz="0.0000005"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. -0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_intermediate_visuals_Link13_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. -0. -0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_intermediate_collisions_Link13_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. -0." rpy="-3.1415927 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_intermediate_collisions_Link13_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_thumb_proximal">
+    <inertial>
+      <origin xyz="0.021936 -0.01279 -0.0080386" rpy="0. 0. 0."/>
+      <mass value="0.0066101"/>
+      <inertia ixx="0.0000016" ixy="0.0000008" ixz="0." iyy="0.0000017" iyz="0." izz="0.0000028"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="3.1415925 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_proximal_visuals_Link12_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="3.1415925 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_proximal_collisions_Link12_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. 0." rpy="3.1415925 0. -3.1415927"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_proximal_collisions_Link12_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="L_thumb_proximal_base">
+    <inertial>
+      <origin xyz="0.0048817 0.0003878 -0.00722 " rpy="0. 0. 0."/>
+      <mass value="0.0018869"/>
+      <inertia ixx="0.0000001" ixy="-0." ixz="-0." iyy="0.0000001" iyz="-0." izz="0.0000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000069 0.0000224 -0.0000015" rpy="-0.0001916 -0.000055 0.00006 "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_proximal_base_visuals_Link11_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000069 0.0000224 -0.0000015" rpy="-0.0001916 -0.000055 0.00006 "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_proximal_base_collisions_Link11_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000069 0.0000224 -0.0000015" rpy="-0.0001916 -0.000055 0.00006 "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/L_thumb_proximal_base_collisions_Link11_L_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_index_intermediate">
+    <inertial>
+      <origin xyz="0.0019697 0.019589 -0.005 " rpy="0. 0. 0."/>
+      <mass value="0.0045683"/>
+      <inertia ixx="0.0000008" ixy="0.0000001" ixz="-0." iyy="0.0000001" iyz="0." izz="0.0000008"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_index_intermediate_visuals_Link16_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.005 0.04 -0.004" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_index_intermediate_collisions_Link16_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_index_intermediate_collisions_Link16_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_index_proximal">
+    <inertial>
+      <origin xyz="0.0012259 0.011942 -0.0060001" rpy="0. 0. 0."/>
+      <mass value="0.0042403"/>
+      <inertia ixx="0.0000007" ixy="-0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.000036 0.0000021 -0.0000097" rpy="-0.000055 -0.0000532 0.0001937"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_index_proximal_visuals_Link15_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.000036 0.0000021 -0.0000097" rpy="-0.000055 -0.0000532 0.0001937"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_index_proximal_collisions_Link15_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.000036 0.0000021 -0.0000097" rpy="-0.000055 -0.0000532 0.0001937"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_index_proximal_collisions_Link15_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_middle_intermediate">
+    <inertial>
+      <origin xyz="0.001921 0.020796 -0.005 " rpy="0. 0. 0."/>
+      <mass value="0.0050396"/>
+      <inertia ixx="0.000001" ixy="0.0000001" ixz="-0." iyy="0.0000001" iyz="0." izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_middle_intermediate_visuals_Link18_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.005 0.045 -0.004" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_middle_intermediate_collisions_Link18_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_middle_intermediate_collisions_Link18_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_middle_proximal">
+    <inertial>
+      <origin xyz="0.001297 0.011934 -0.0060001" rpy="0. 0. 0."/>
+      <mass value="0.0042403"/>
+      <inertia ixx="0.0000007" ixy="-0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.000035 0.0000013 -0.0000096" rpy="-0.0000549 -0.00006 0.0001916"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_middle_proximal_visuals_Link17_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.000035 0.0000013 -0.0000096" rpy="-0.0000549 -0.00006 0.0001916"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_middle_proximal_collisions_Link17_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.000035 0.0000013 -0.0000096" rpy="-0.0000549 -0.00006 0.0001916"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_middle_proximal_collisions_Link17_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_pinky_intermediate">
+    <inertial>
+      <origin xyz="0.0024748 0.016203 -0.0050031" rpy="0. 0. 0."/>
+      <mass value="0.0035996"/>
+      <inertia ixx="0.0000004" ixy="0." ixz="0." iyy="0.0000001" iyz="0." izz="0.0000004"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_pinky_intermediate_visuals_Link22_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.002 0.032 -0.004" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_pinky_intermediate_collisions_Link22_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_pinky_intermediate_collisions_Link22_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_pinky_proximal">
+    <inertial>
+      <origin xyz="0.001297 0.011934 -0.0060001" rpy="0. 0. 0."/>
+      <mass value="0.0042403"/>
+      <inertia ixx="0.0000007" ixy="-0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000324 0.0000002 -0.0000096" rpy="-0.0000549 -0.0000796 0.0001843"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_pinky_proximal_visuals_Link21_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000324 0.0000002 -0.0000096" rpy="-0.0000549 -0.0000796 0.0001843"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_pinky_proximal_collisions_Link21_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000324 0.0000002 -0.0000096" rpy="-0.0000549 -0.0000796 0.0001843"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_pinky_proximal_collisions_Link21_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_ring_intermediate">
+    <inertial>
+      <origin xyz="0.0021753 0.019567 -0.005 " rpy="0. 0. 0."/>
+      <mass value="0.0045683"/>
+      <inertia ixx="0.0000008" ixy="0.0000001" ixz="-0." iyy="0.0000001" iyz="0." izz="0.0000008"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. -0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_ring_intermediate_visuals_Link20_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.002 0.04 -0.004" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. -0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_ring_intermediate_collisions_Link20_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. -0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_ring_intermediate_collisions_Link20_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_ring_proximal">
+    <inertial>
+      <origin xyz="0.001297 0.011934 -0.0060002" rpy="0. 0. 0."/>
+      <mass value="0.0042403"/>
+      <inertia ixx="0.0000007" ixy="-0." ixz="0." iyy="0.0000002" iyz="-0." izz="0.0000007"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000338 0.0000008 -0.0000096" rpy="-0.0000549 -0.0000699 0.0001883"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_ring_proximal_visuals_Link19_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000338 0.0000008 -0.0000096" rpy="-0.0000549 -0.0000699 0.0001883"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_ring_proximal_collisions_Link19_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000338 0.0000008 -0.0000096" rpy="-0.0000549 -0.0000699 0.0001883"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_ring_proximal_collisions_Link19_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_thumb_distal">
+    <inertial>
+      <origin xyz="0.0092888 0.0049529 -0.0060033" rpy="0. 0. 0."/>
+      <mass value="0.0033441"/>
+      <inertia ixx="0.0000001" ixy="-0.0000001" ixz="-0." iyy="0.0000001" iyz="-0." izz="0.0000002"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_distal_visuals_Link14_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.015 0.013 -0.004" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_distal_collisions_Link14_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_distal_collisions_Link14_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_thumb_intermediate">
+    <inertial>
+      <origin xyz="0.0095544 -0.0016282 -0.0071997" rpy="0. 0. 0."/>
+      <mass value="0.0037847"/>
+      <inertia ixx="0.0000004" ixy="-0.0000001" ixz="-0." iyy="0.0000003" iyz="0." izz="0.0000005"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_intermediate_visuals_Link13_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_intermediate_collisions_Link13_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_intermediate_collisions_Link13_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_thumb_proximal">
+    <inertial>
+      <origin xyz="0.021932 0.012785 -0.0080386" rpy="0. 0. 0."/>
+      <mass value="0.0066075"/>
+      <inertia ixx="0.0000016" ixy="-0.0000008" ixz="0." iyy="0.0000017" iyz="-0." izz="0.0000028"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="-0. 0.0000001 0.0000001"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_proximal_visuals_Link12_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="-0. 0.0000001 0.0000001"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_proximal_collisions_Link12_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. 0." rpy="-0. 0.0000001 0.0000001"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_proximal_collisions_Link12_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="R_thumb_proximal_base">
+    <inertial>
+      <origin xyz="-0.0048064 0.0009382 -0.00757 " rpy="0. 0. 0."/>
+      <mass value="0.0018869"/>
+      <inertia ixx="0.0000001" ixy="0." ixz="0." iyy="0.0000001" iyz="-0." izz="0.0000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000069 0.0000224 0.0000015" rpy="3.141401 -0.0000549 -3.1415327"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_proximal_base_visuals_Link11_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000069 0.0000224 0.0000015" rpy="3.141401 -0.0000549 -3.1415327"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_proximal_base_collisions_Link11_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000069 0.0000224 0.0000015" rpy="3.141401 -0.0000549 -3.1415327"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/R_thumb_proximal_base_collisions_Link11_R_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0"/>
+  <link name="g1_29dof_rev_1_0_left_ankle_pitch_link">
+    <inertial>
+      <origin xyz="-0.007269 0. 0.011137" rpy="0. 0. 0."/>
+      <mass value="0.074"/>
+      <inertia ixx="0.0000084" ixy="0." ixz="-0.0000029" iyy="0.0000189" iyz="0." izz="0.0000126"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_ankle_pitch_link_visuals_left_ankle_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_ankle_pitch_link_collisions_left_ankle_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_ankle_pitch_link_collisions_left_ankle_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_ankle_roll_link">
+    <inertial>
+      <origin xyz="0.026505 0. -0.016425" rpy="0. 0. 0."/>
+      <mass value="0.608"/>
+      <inertia ixx="0.0002231" ixy="0.0000002" ixz="0.0000891" iyy="0.0016161" iyz="-0.0000001" izz="0.0016667"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_ankle_roll_link_visuals_left_ankle_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.05 0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.05 -0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.12 0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.12 -0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.05 0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05 -0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.12 0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.12 -0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_elbow_link">
+    <inertial>
+      <origin xyz="0.064956 0.004454 -0.010062" rpy="0. 0. 0."/>
+      <mass value="0.6"/>
+      <inertia ixx="0.0002891" ixy="0.0000653" ixz="0.0000172" iyy="0.0004152" iyz="-0.0000056" izz="0.0004197"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000044 0.0000018 -0.0000009" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_elbow_link_visuals_left_elbow_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000044 0.0000018 -0.0000009" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_elbow_link_collisions_left_elbow_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000044 0.0000018 -0.0000009" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_elbow_link_collisions_left_elbow_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_hip_pitch_link">
+    <inertial>
+      <origin xyz="0.002741 0.047791 -0.02606 " rpy="0. 0. 0."/>
+      <mass value="1.35"/>
+      <inertia ixx="0.001811" ixy="0.0000368" ixz="-0.0000344" iyy="0.0014193" iyz="0.000171" izz="0.0012812"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_pitch_link_visuals_left_hip_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_pitch_link_collisions_left_hip_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_pitch_link_collisions_left_hip_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_hip_roll_link">
+    <inertial>
+      <origin xyz="0.029812 -0.001045 -0.087934" rpy="0. 0. 0."/>
+      <mass value="1.52"/>
+      <inertia ixx="0.0023773" ixy="-0.0000038" ixz="-0.0003908" iyy="0.0024123" iyz="0.0000184" izz="0.0016595"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_roll_link_visuals_left_hip_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_roll_link_collisions_left_hip_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_roll_link_collisions_left_hip_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_hip_yaw_link">
+    <inertial>
+      <origin xyz="-0.057709 -0.010981 -0.15078 " rpy="0. 0. 0."/>
+      <mass value="1.702"/>
+      <inertia ixx="0.0057774" ixy="-0.0005411" ixz="-0.0023948" iyy="0.0076124" iyz="-0.0007072" izz="0.003149"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_yaw_link_visuals_left_hip_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_yaw_link_collisions_left_hip_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_hip_yaw_link_collisions_left_hip_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_knee_link">
+    <inertial>
+      <origin xyz="0.005457 0.003964 -0.12074 " rpy="0. 0. 0."/>
+      <mass value="1.932"/>
+      <inertia ixx="0.011329" ixy="0.0000482" ixz="-0.0000449" iyy="0.011277" iyz="-0.0007146" izz="0.0015168"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_knee_link_visuals_left_knee_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_knee_link_collisions_left_knee_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_knee_link_collisions_left_knee_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="0. 0.035892 -0.011628" rpy="0. 0. 0."/>
+      <mass value="0.718"/>
+      <inertia ixx="0.0004291" ixy="-0.0000092" ixz="0.0000064" iyy="0.000453" iyz="0.0000226" izz="0.000423"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0.0000002 0. -0. "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_shoulder_pitch_link_visuals_left_shoulder_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.04 -0.01" rpy="1.711347 1.5707961 1.711347 "/>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0.04 -0.01" rpy="1.711347 1.5707961 1.711347 "/>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.000227 0.00727 -0.063243" rpy="0. 0. 0."/>
+      <mass value="0.643"/>
+      <inertia ixx="0.0006177" ixy="-0.000001" ixz="0.0000087" iyy="0.0006912" iyz="-0.0000053" izz="0.0003894"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. 0. -0." rpy="-0.0000602 -0.0000549 0.0001916"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_shoulder_roll_link_visuals_left_shoulder_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0039982 0.005996 -0.0530006" rpy="-0.0000602 -0.0000549 0.0001916"/>
+      <geometry>
+        <cylinder radius="0.03" length="0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0039982 0.005996 -0.0530006" rpy="-0.0000602 -0.0000549 0.0001916"/>
+      <geometry>
+        <cylinder radius="0.03" length="0.03"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0.010773 -0.002949 -0.072009" rpy="0. 0. 0."/>
+      <mass value="0.734"/>
+      <inertia ixx="0.0009988" ixy="0.0000079" ixz="0.0001412" iyy="0.0010605" iyz="-0.0000286" izz="0.0004354"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000045 0.0000062 0.0000004" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_shoulder_yaw_link_visuals_left_shoulder_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000045 0.0000062 0.0000004" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_shoulder_yaw_link_collisions_left_shoulder_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000045 0.0000062 0.0000004" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_shoulder_yaw_link_collisions_left_shoulder_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.0229999 -0.0011169 -0.0011166" rpy="0. 0. 0."/>
+      <mass value="0.4840496"/>
+      <inertia ixx="0.0001658" ixy="-0.0000123" ixz="0.0000123" iyy="0.0004295" iyz="0.0000008" izz="0.0004295"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0.0000073 -0.0000021" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_pitch_link_visuals_left_wrist_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0.0000073 -0.0000021" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_pitch_link_collisions_left_wrist_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0.0000073 -0.0000021" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_pitch_link_collisions_left_wrist_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_wrist_roll_link">
+    <inertial>
+      <origin xyz="0.0171394 0.0005376 0.0000005" rpy="0. 0. 0."/>
+      <mass value="0.085445"/>
+      <inertia ixx="0.0000482" ixy="-0.0000042" ixz="0." iyy="0.0000372" iyz="-0." izz="0.0000548"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000002 -0.0000186 -0.0000054" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_roll_link_visuals_left_wrist_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000002 -0.0000186 -0.0000054" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_roll_link_collisions_left_wrist_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000002 -0.0000186 -0.0000054" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_roll_link_collisions_left_wrist_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_left_wrist_yaw_link">
+    <inertial>
+      <origin xyz="0.0755349 0.0004662 -0.0010098" rpy="0. 0. 0."/>
+      <mass value="0.2260065"/>
+      <inertia ixx="0.0001335" ixy="-0.0000024" ixz="0.0000141" iyy="0.0005708" iyz="-0.0000013" izz="0.0005038"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0.0000088 -0.0000025" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_yaw_link_visuals_left_wrist_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0415 0.0029912 -0.0000025" rpy="0. 0. 1.5707963"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_yaw_link_visuals_L_hand_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0.0000088 -0.0000025" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_yaw_link_collisions_left_wrist_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0415 0.0029912 -0.0000025" rpy="0. 0. 1.5707963"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_yaw_link_collisions_L_hand_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0.0000088 -0.0000025" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_yaw_link_collisions_left_wrist_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0415 0.0029912 -0.0000025" rpy="0. 0. 1.5707963"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_left_wrist_yaw_link_collisions_L_hand_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_pelvis">
+    <inertial>
+      <origin xyz="0. 0. -0.0760301" rpy="0. 0. 0."/>
+      <mass value="3.8139999"/>
+      <inertia ixx="0.0105549" ixy="0." ixz="0.0000021" iyy="0.0093148" iyz="0." izz="0.0079185"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_pelvis_visuals_pelvis_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_pelvis_visuals_pelvis_contour_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_ankle_pitch_link">
+    <inertial>
+      <origin xyz="-0.007269 0. 0.011137" rpy="0. 0. 0."/>
+      <mass value="0.074"/>
+      <inertia ixx="0.0000084" ixy="0." ixz="-0.0000029" iyy="0.0000189" iyz="0." izz="0.0000126"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_ankle_pitch_link_visuals_right_ankle_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_ankle_pitch_link_collisions_right_ankle_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_ankle_pitch_link_collisions_right_ankle_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_ankle_roll_link">
+    <inertial>
+      <origin xyz="0.026505 0. -0.016425" rpy="0. 0. 0."/>
+      <mass value="0.608"/>
+      <inertia ixx="0.0002231" ixy="-0.0000002" ixz="0.0000891" iyy="0.0016161" iyz="0.0000001" izz="0.0016667"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_ankle_roll_link_visuals_right_ankle_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.05 0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.05 -0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.12 0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.12 -0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.05 0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05 -0.025 -0.03 " rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.12 0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.12 -0.03 -0.03" rpy="0. 0. 0."/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_elbow_link">
+    <inertial>
+      <origin xyz="0.064956 -0.004454 -0.010062" rpy="0. 0. 0."/>
+      <mass value="0.6"/>
+      <inertia ixx="0.0002891" ixy="-0.0000653" ixz="0.0000172" iyy="0.0004152" iyz="0.0000056" izz="0.0004197"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000044 -0.0000018 -0.0000009" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_elbow_link_visuals_right_elbow_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000044 -0.0000018 -0.0000009" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_elbow_link_collisions_right_elbow_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000044 -0.0000018 -0.0000009" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_elbow_link_collisions_right_elbow_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_hip_pitch_link">
+    <inertial>
+      <origin xyz="0.002741 -0.047791 -0.02606 " rpy="0. 0. 0."/>
+      <mass value="1.35"/>
+      <inertia ixx="0.001811" ixy="-0.0000368" ixz="-0.0000344" iyy="0.0014193" iyz="-0.000171" izz="0.0012812"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_pitch_link_visuals_right_hip_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_pitch_link_collisions_right_hip_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_pitch_link_collisions_right_hip_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_hip_roll_link">
+    <inertial>
+      <origin xyz="0.029812 0.001045 -0.087934" rpy="0. 0. 0."/>
+      <mass value="1.52"/>
+      <inertia ixx="0.0023773" ixy="0.0000038" ixz="-0.0003908" iyy="0.0024123" iyz="-0.0000184" izz="0.0016595"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_roll_link_visuals_right_hip_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_roll_link_collisions_right_hip_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_roll_link_collisions_right_hip_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_hip_yaw_link">
+    <inertial>
+      <origin xyz="-0.057709 0.010981 -0.15078 " rpy="0. 0. 0."/>
+      <mass value="1.702"/>
+      <inertia ixx="0.0057774" ixy="0.0005411" ixz="-0.0023948" iyy="0.0076124" iyz="0.0007072" izz="0.003149"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_yaw_link_visuals_right_hip_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_yaw_link_collisions_right_hip_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_hip_yaw_link_collisions_right_hip_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_knee_link">
+    <inertial>
+      <origin xyz="0.005457 -0.003964 -0.12074 " rpy="0. 0. 0."/>
+      <mass value="1.932"/>
+      <inertia ixx="0.011329" ixy="-0.0000482" ixz="0.0000449" iyy="0.011277" iyz="0.0007146" izz="0.0015168"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_knee_link_visuals_right_knee_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_knee_link_collisions_right_knee_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_knee_link_collisions_right_knee_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="0. -0.035892 -0.011628" rpy="0. 0. 0."/>
+      <mass value="0.718"/>
+      <inertia ixx="0.0004291" ixy="0.0000092" ixz="0.0000064" iyy="0.000453" iyz="-0.0000226" izz="0.000423"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_shoulder_pitch_link_visuals_right_shoulder_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0.04 -0.01" rpy="-1.711347 1.5707961 -1.711347 "/>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0.04 -0.01" rpy="-1.711347 1.5707961 -1.711347 "/>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_shoulder_roll_link">
+    <inertial>
+      <origin xyz="-0.000227 -0.00727 -0.063243" rpy="0. 0. 0."/>
+      <mass value="0.643"/>
+      <inertia ixx="0.0006177" ixy="0.000001" ixz="0.0000087" iyy="0.0006912" iyz="0.0000053" izz="0.0003894"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. -0." rpy="0.0000602 -0.0000549 -0.0001916"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_shoulder_roll_link_visuals_right_shoulder_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0039982 -0.005996 -0.0530006" rpy="0.0000602 -0.0000549 -0.0001916"/>
+      <geometry>
+        <cylinder radius="0.03" length="0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0039982 -0.005996 -0.0530006" rpy="0.0000602 -0.0000549 -0.0001916"/>
+      <geometry>
+        <cylinder radius="0.03" length="0.03"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0.010773 0.002949 -0.072009" rpy="0. 0. 0."/>
+      <mass value="0.734"/>
+      <inertia ixx="0.0009988" ixy="-0.0000079" ixz="0.0001412" iyy="0.0010605" iyz="0.0000286" izz="0.0004354"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000045 -0.0000062 0.0000004" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_shoulder_yaw_link_visuals_right_shoulder_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000045 -0.0000062 0.0000004" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_shoulder_yaw_link_collisions_right_shoulder_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000045 -0.0000062 0.0000004" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_shoulder_yaw_link_collisions_right_shoulder_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.0229999 0.0011169 -0.0011166" rpy="0. 0. 0."/>
+      <mass value="0.4840496"/>
+      <inertia ixx="0.0001658" ixy="0.0000123" ixz="0.0000123" iyy="0.0004295" iyz="-0.0000008" izz="0.0004295"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0.0000073 -0.0000021" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_pitch_link_visuals_right_wrist_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.0000073 -0.0000021" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_pitch_link_collisions_right_wrist_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0.0000073 -0.0000021" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_pitch_link_collisions_right_wrist_pitch_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_wrist_roll_link">
+    <inertial>
+      <origin xyz="0.0171394 -0.0005376 0.0000005" rpy="0. 0. 0."/>
+      <mass value="0.085445"/>
+      <inertia ixx="0.0000482" ixy="0.0000042" ixz="0." iyy="0.0000372" iyz="0." izz="0.0000548"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000002 0.0000186 -0.0000054" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_roll_link_visuals_right_wrist_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000002 0.0000186 -0.0000054" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_roll_link_collisions_right_wrist_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000002 0.0000186 -0.0000054" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_roll_link_collisions_right_wrist_roll_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="g1_29dof_rev_1_0_right_wrist_yaw_link">
+    <inertial>
+      <origin xyz="0.0755349 -0.0004816 -0.0010248" rpy="0. 0. 0."/>
+      <mass value="0.2260065"/>
+      <inertia ixx="0.0001335" ixy="0.0000025" ixz="0.0000141" iyy="0.0005702" iyz="0.0000013" izz="0.0005032"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0.0000088 -0.0000025" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_yaw_link_visuals_right_wrist_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0415 -0.0029912 -0.0000025" rpy="-3.1415927 0.0000025 -1.5707964"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_yaw_link_visuals_R_hand_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.0000088 -0.0000025" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_yaw_link_collisions_right_wrist_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0415 -0.0029912 -0.0000025" rpy="-3.1415927 0.0000025 -1.5707964"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_yaw_link_collisions_R_hand_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0.0000088 -0.0000025" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_yaw_link_collisions_right_wrist_yaw_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0415 -0.0029912 -0.0000025" rpy="-3.1415927 0.0000025 -1.5707964"/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/g1_29dof_rev_1_0_right_wrist_yaw_link_collisions_R_hand_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="torso_link">
+    <inertial>
+      <origin xyz="0.0020313 0.0003397 0.1845971" rpy="0. 0. 0."/>
+      <mass value="7.8169999"/>
+      <inertia ixx="0.1216465" ixy="0.0000311" ixz="-0.0037428" iyy="0.1097726" iyz="-0.0000154" izz="0.0275219"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_visuals_torso_link_rev_1_0_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0039635 0. -0.044 " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_visuals_head_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0039635 0. -0.044 " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_visuals_logo_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_collisions_torso_link_rev_1_0_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0039635 0. -0.044 " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_collisions_head_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0039635 0. -0.044 " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_collisions_logo_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_collisions_torso_link_rev_1_0_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0039635 0. -0.044 " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_collisions_head_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0039635 0. -0.044 " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/torso_link_collisions_logo_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="waist_roll_link">
+    <inertial>
+      <origin xyz="0. 0.000023 0. " rpy="0. 0. 0."/>
+      <mass value="0.086"/>
+      <inertia ixx="0.0000071" ixy="0." ixz="0." iyy="0.0000063" iyz="0." izz="0.0000082"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/waist_roll_link_rev_1_0_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="waist_yaw_link">
+    <inertial>
+      <origin xyz="0.003494 0.000233 0.018034" rpy="0. 0. 0."/>
+      <mass value="0.214"/>
+      <inertia ixx="0.0001067" ixy="0.0000027" ixz="-0.0000076" iyy="0.0001042" iyz="-0.0000002" izz="0.0001625"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="/home/yaoyh/workspace/IsaacLab/assets/G1_models/g1_29dof_inspire_hand/meshes/waist_yaw_link_rev_1_0_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

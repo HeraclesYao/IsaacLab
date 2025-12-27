@@ -12,8 +12,9 @@ import traceback
 from isaaclab.app import AppLauncher
 
 # add argparse arguments
-parser = argparse.ArgumentParser(description="ROS2 communication verification for Unitree G1 robot.")
+parser = argparse.ArgumentParser(description="ROS2 communication verification for hand or robot.")
 parser.add_argument("--num_envs", type=int, default=1, help="Number of environments to simulate.")
+parser.add_argument("--task", type=str, default="Isaac-PickPlace-G1-InspireFTP-Abs-v0", help="Name of the task.")
 parser.add_argument("--device_name", type=str, default="ros2_gloves", help="ROS2 device name in configuration.")  # 修改设备名称
 
 # append AppLauncher cli args
@@ -41,8 +42,15 @@ def main():
     
     # Import the simplified configuration
     try:
-        from isaaclab_tasks.manager_based.manipulation.pick_place.pickplace_ros2_verify_env_cfg import PickPlaceG1ROS2VerifyEnvCfg
-        env_cfg = PickPlaceG1ROS2VerifyEnvCfg()
+        if args_cli.task == "Isaac-PickPlace-G1-InspireFTP-Abs-v0":
+            from isaaclab_tasks.manager_based.manipulation.pick_place.pickplace_ros2_verify_env_cfg import PickPlaceG1ROS2VerifyEnvCfg
+            env_cfg = PickPlaceG1ROS2VerifyEnvCfg()
+        elif args_cli.task == "Isaac-Linkerhand-v0":
+            from isaaclab_tasks.manager_based.linkerhand.linkerhand_env_cfg import LinkerhandEnvCfg
+            env_cfg = LinkerhandEnvCfg()
+        else:
+            raise ValueError(f"Unsupported task: {args_cli.task}")
+        
         env_cfg.scene.num_envs = args_cli.num_envs
         print("✓ Loaded simplified configuration")
     except ImportError as e:
@@ -152,13 +160,13 @@ def main():
             
             # Reset if episode is done (unlikely in verification mode)
             # Check for episode completion from extras
-            terminated = extras.get("log", {}).get("terminated", False)
-            truncated = episode_steps >= max_episode_steps
-            if terminated or truncated:
-                env.reset()
-                episode_count += 1
-                episode_steps = 0
-                print(f"Episode {episode_count} completed")
+            # terminated = extras.get("log", {}).get("terminated", False)
+            # truncated = episode_steps >= max_episode_steps
+            # if terminated or truncated:
+            #     env.reset()
+            #     episode_count += 1
+            #     episode_steps = 0
+            #     print(f"Episode {episode_count} completed")
         
         except KeyboardInterrupt:
             print("\nInterrupted by user")

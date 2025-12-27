@@ -119,12 +119,12 @@ def main():
                 obs, reward, terminated, truncated, info = env.step(commands)
                 episode_steps += 1
                 
-                # Reset if episode is done
-                if terminated or truncated or episode_steps >= max_episode_steps:
-                    env.reset()
-                    episode_count += 1
-                    episode_steps = 0
-                    print(f"Episode {episode_count} completed")
+                # # Reset if episode is done
+                # if terminated or truncated or episode_steps >= max_episode_steps:
+                #     env.reset()
+                #     episode_count += 1
+                #     episode_steps = 0
+                #     print(f"Episode {episode_count} completed")
             
             # Small delay to prevent excessive CPU usage
             time.sleep(0.001)
