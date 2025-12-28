@@ -412,6 +412,7 @@ class PickPlaceG1InspireFTPEnvCfg(ManagerBasedRLEnvCfg):
                 "ros2_bridge_gloves": ROS2BridgeDeviceCfg(
                     left_hand_topic="/cb_left_hand_control_cmd",
                     right_hand_topic="/cb_right_hand_control_cmd",
+                    dual_arm_topic="/cb_arm_control_cmd",  # 新增：双臂控制topic
                     message_timeout=1.0,
                     use_isaacsim_bridge=True,
                     retargeters=[

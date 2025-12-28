@@ -1,17 +1,107 @@
-yaoyh-4090@yaoyh4090-NONE:~/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2$ ros2 run linkerhand_retarget handretarget 
-/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
-  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
-[INFO] [1766808560.776688443] [handretarget_node]: Ready Create HandRetargetNode!
-[INFO] [1766808561.585263123] [handretarget_node]: 启动应用实例
-发生错误: [Errno 98] Address already in use,UDP套接字已关闭!
+✗ Failed to create environment: Not all regular expressions are matched! Please check that the regular expressions are correct: 
+    left_shoulder_pitch_joint111111111111: []
+    left_shoulder_roll_joint: ['left_shoulder_roll_joint']
+    left_shoulder_yaw_joint: ['left_shoulder_yaw_joint']
+    left_elbow_joint: ['left_elbow_joint']
+    left_wrist_yaw_joint: ['left_wrist_yaw_joint']
+    left_wrist_roll_joint: ['left_wrist_roll_joint']
+    left_wrist_pitch_joint: ['left_wrist_pitch_joint']
+    right_shoulder_pitch_joint: ['right_shoulder_pitch_joint']
+    right_shoulder_roll_joint: ['right_shoulder_roll_joint']
+    right_shoulder_yaw_joint: ['right_shoulder_yaw_joint']
+    right_elbow_joint: ['right_elbow_joint']
+    right_wrist_yaw_joint: ['right_wrist_yaw_joint']
+    right_wrist_roll_joint: ['right_wrist_roll_joint']
+    right_wrist_pitch_joint: ['right_wrist_pitch_joint']
+    L_index_proximal_joint: ['L_index_proximal_joint']
+    L_middle_proximal_joint: ['L_middle_proximal_joint']
+    L_pinky_proximal_joint: ['L_pinky_proximal_joint']
+    L_ring_proximal_joint: ['L_ring_proximal_joint']
+    L_thumb_proximal_yaw_joint: ['L_thumb_proximal_yaw_joint']
+    R_index_proximal_joint: ['R_index_proximal_joint']
+    R_middle_proximal_joint: ['R_middle_proximal_joint']
+    R_pinky_proximal_joint: ['R_pinky_proximal_joint']
+    R_ring_proximal_joint: ['R_ring_proximal_joint']
+    R_thumb_proximal_yaw_joint: ['R_thumb_proximal_yaw_joint']
+    L_index_intermediate_joint: ['L_index_intermediate_joint']
+    L_middle_intermediate_joint: ['L_middle_intermediate_joint']
+    L_pinky_intermediate_joint: ['L_pinky_intermediate_joint']
+    L_ring_intermediate_joint: ['L_ring_intermediate_joint']
+    L_thumb_proximal_pitch_joint: ['L_thumb_proximal_pitch_joint']
+    R_index_intermediate_joint: ['R_index_intermediate_joint']
+    R_middle_intermediate_joint: ['R_middle_intermediate_joint']
+    R_pinky_intermediate_joint: ['R_pinky_intermediate_joint']
+    R_ring_intermediate_joint: ['R_ring_intermediate_joint']
+    R_thumb_proximal_pitch_joint: ['R_thumb_proximal_pitch_joint']
+    L_thumb_intermediate_joint: ['L_thumb_intermediate_joint']
+    R_thumb_intermediate_joint: ['R_thumb_intermediate_joint']
+    L_thumb_distal_joint: ['L_thumb_distal_joint']
+    R_thumb_distal_joint: ['R_thumb_distal_joint']
+Available strings: ['left_hip_pitch_joint', 'right_hip_pitch_joint', 'waist_yaw_joint', 'left_hip_roll_joint', 'right_hip_roll_joint', 'waist_roll_joint', 'left_hip_yaw_joint', 'right_hip_yaw_joint', 'waist_pitch_joint', 'left_knee_joint', 'right_knee_joint', 'left_shoulder_pitch_joint', 'right_shoulder_pitch_joint', 'left_ankle_pitch_joint', 'right_ankle_pitch_joint', 'left_shoulder_roll_joint', 'right_shoulder_roll_joint', 'left_ankle_roll_joint', 'right_ankle_roll_joint', 'left_shoulder_yaw_joint', 'right_shoulder_yaw_joint', 'left_elbow_joint', 'right_elbow_joint', 'left_wrist_roll_joint', 'right_wrist_roll_joint', 'left_wrist_pitch_joint', 'right_wrist_pitch_joint', 'left_wrist_yaw_joint', 'right_wrist_yaw_joint', 'L_index_proximal_joint', 'L_middle_proximal_joint', 'L_pinky_proximal_joint', 'L_ring_proximal_joint', 'L_thumb_proximal_yaw_joint', 'R_index_proximal_joint', 'R_middle_proximal_joint', 'R_pinky_proximal_joint', 'R_ring_proximal_joint', 'R_thumb_proximal_yaw_joint', 'L_index_intermediate_joint', 'L_middle_intermediate_joint', 'L_pinky_intermediate_joint', 'L_ring_intermediate_joint', 'L_thumb_proximal_pitch_joint', 'R_index_intermediate_joint', 'R_middle_intermediate_joint', 'R_pinky_intermediate_joint', 'R_ring_intermediate_joint', 'R_thumb_proximal_pitch_joint', 'L_thumb_intermediate_joint', 'R_thumb_intermediate_joint', 'L_thumb_distal_joint', 'R_thumb_distal_joint']
+
 Traceback (most recent call last):
-  File "/home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2/install/linkerhand_retarget/lib/linkerhand_retarget/handretarget", line 33, in <module>
-    sys.exit(load_entry_point('linkerhand_retarget==2.6.3', 'console_scripts', 'handretarget')())
-  File "/home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2/install/linkerhand_retarget/lib/python3.10/site-packages/linkerhand_retarget/handretarget.py", line 165, in main
-    node.retargetrun()
-  File "/home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2/install/linkerhand_retarget/lib/python3.10/site-packages/linkerhand_retarget/handretarget.py", line 157, in retargetrun
-    self.retarget.process()
-  File "/home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros2/install/linkerhand_retarget/lib/python3.10/site-packages/linkerhand_retarget/motion/udexreal/retarget.py", line 172, in process
-    self.get_logger().error("初始化配置网络失败")
-AttributeError: 'Retarget' object has no attribute 'get_logger'
-[ros2run]: Process exited with failure 1
+  File "/home/yaoyh-4090/IsaacLab/scripts/environments/teleoperation/teleop_ros2_verify.py", line 63, in main
+    env = ManagerBasedEnv(env_cfg)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/manager_based_env.py", line 177, in __init__
+    self.load_managers()
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/manager_based_env.py", line 313, in load_managers
+    self.action_manager = ActionManager(self.cfg.actions, self)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/action_manager.py", line 212, in __init__
+    super().__init__(cfg, env)
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/manager_base.py", line 176, in __init__
+    self._prepare_terms()
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/action_manager.py", line 448, in _prepare_terms
+    term = term_cfg.class_type(term_cfg, self._env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/mdp/actions/joint_actions.py", line 191, in __init__
+    super().__init__(cfg, env)
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/mdp/actions/joint_actions.py", line 64, in __init__
+    self._joint_ids, self._joint_names = self._asset.find_joints(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/assets/articulation/articulation.py", line 267, in find_joints
+    return string_utils.resolve_matching_names(name_keys, joint_subset, preserve_order)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/utils/string.py", line 267, in resolve_matching_names
+    raise ValueError(
+ValueError: Not all regular expressions are matched! Please check that the regular expressions are correct: 
+    left_shoulder_pitch_joint111111111111: []
+    left_shoulder_roll_joint: ['left_shoulder_roll_joint']
+    left_shoulder_yaw_joint: ['left_shoulder_yaw_joint']
+    left_elbow_joint: ['left_elbow_joint']
+    left_wrist_yaw_joint: ['left_wrist_yaw_joint']
+    left_wrist_roll_joint: ['left_wrist_roll_joint']
+    left_wrist_pitch_joint: ['left_wrist_pitch_joint']
+    right_shoulder_pitch_joint: ['right_shoulder_pitch_joint']
+    right_shoulder_roll_joint: ['right_shoulder_roll_joint']
+    right_shoulder_yaw_joint: ['right_shoulder_yaw_joint']
+    right_elbow_joint: ['right_elbow_joint']
+    right_wrist_yaw_joint: ['right_wrist_yaw_joint']
+    right_wrist_roll_joint: ['right_wrist_roll_joint']
+    right_wrist_pitch_joint: ['right_wrist_pitch_joint']
+    L_index_proximal_joint: ['L_index_proximal_joint']
+    L_middle_proximal_joint: ['L_middle_proximal_joint']
+    L_pinky_proximal_joint: ['L_pinky_proximal_joint']
+    L_ring_proximal_joint: ['L_ring_proximal_joint']
+    L_thumb_proximal_yaw_joint: ['L_thumb_proximal_yaw_joint']
+    R_index_proximal_joint: ['R_index_proximal_joint']
+    R_middle_proximal_joint: ['R_middle_proximal_joint']
+    R_pinky_proximal_joint: ['R_pinky_proximal_joint']
+    R_ring_proximal_joint: ['R_ring_proximal_joint']
+    R_thumb_proximal_yaw_joint: ['R_thumb_proximal_yaw_joint']
+    L_index_intermediate_joint: ['L_index_intermediate_joint']
+    L_middle_intermediate_joint: ['L_middle_intermediate_joint']
+    L_pinky_intermediate_joint: ['L_pinky_intermediate_joint']
+    L_ring_intermediate_joint: ['L_ring_intermediate_joint']
+    L_thumb_proximal_pitch_joint: ['L_thumb_proximal_pitch_joint']
+    R_index_intermediate_joint: ['R_index_intermediate_joint']
+    R_middle_intermediate_joint: ['R_middle_intermediate_joint']
+    R_pinky_intermediate_joint: ['R_pinky_intermediate_joint']
+    R_ring_intermediate_joint: ['R_ring_intermediate_joint']
+    R_thumb_proximal_pitch_joint: ['R_thumb_proximal_pitch_joint']
+    L_thumb_intermediate_joint: ['L_thumb_intermediate_joint']
+    R_thumb_intermediate_joint: ['R_thumb_intermediate_joint']
+    L_thumb_distal_joint: ['L_thumb_distal_joint']
+    R_thumb_distal_joint: ['R_thumb_distal_joint']
+Available strings: ['left_hip_pitch_joint', 'right_hip_pitch_joint', 'waist_yaw_joint', 'left_hip_roll_joint', 'right_hip_roll_joint', 'waist_roll_joint', 'left_hip_yaw_joint', 'right_hip_yaw_joint', 'waist_pitch_joint', 'left_knee_joint', 'right_knee_joint', 'left_shoulder_pitch_joint', 'right_shoulder_pitch_joint', 'left_ankle_pitch_joint', 'right_ankle_pitch_joint', 'left_shoulder_roll_joint', 'right_shoulder_roll_joint', 'left_ankle_roll_joint', 'right_ankle_roll_joint', 'left_shoulder_yaw_joint', 'right_shoulder_yaw_joint', 'left_elbow_joint', 'right_elbow_joint', 'left_wrist_roll_joint', 'right_wrist_roll_joint', 'left_wrist_pitch_joint', 'right_wrist_pitch_joint', 'left_wrist_yaw_joint', 'right_wrist_yaw_joint', 'L_index_proximal_joint', 'L_middle_proximal_joint', 'L_pinky_proximal_joint', 'L_ring_proximal_joint', 'L_thumb_proximal_yaw_joint', 'R_index_proximal_joint', 'R_middle_proximal_joint', 'R_pinky_proximal_joint', 'R_ring_proximal_joint', 'R_thumb_proximal_yaw_joint', 'L_index_intermediate_joint', 'L_middle_intermediate_joint', 'L_pinky_intermediate_joint', 'L_ring_intermediate_joint', 'L_thumb_proximal_pitch_joint', 'R_index_intermediate_joint', 'R_middle_intermediate_joint', 'R_pinky_intermediate_joint', 'R_ring_intermediate_joint', 'R_thumb_proximal_pitch_joint', 'L_thumb_intermediate_joint', 'R_thumb_intermediate_joint', 'L_thumb_distal_joint', 'R_thumb_distal_joint']

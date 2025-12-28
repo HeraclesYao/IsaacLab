@@ -38,14 +38,17 @@ class ROS2BridgeDevice(DeviceBase):
         # Store latest joint data
         self._left_hand_data: Optional[torch.Tensor] = None
         self._right_hand_data: Optional[torch.Tensor] = None
+        self._dual_arm_data: Optional[torch.Tensor] = None  # 新增：双臂数据
         self._last_message_time: Dict[str, float] = {
             "left": 0.0,
-            "right": 0.0
+            "right": 0.0,
+            "dual_arm": 0.0  # 新增：双臂数据时间戳
         }
         
         # ROS2 graph nodes
         self._left_hand_node = None
         self._right_hand_node = None
+        self._dual_arm_node = None  # 新增：双臂控制节点
         self._status_node = None
         
         # Initialize ROS2 Bridge
@@ -76,6 +79,8 @@ class ROS2BridgeDevice(DeviceBase):
                 print(f"ROS2 Bridge device initialized. Subscribed to:")
                 print(f"  - Left hand: {self.cfg.left_hand_topic}")
                 print(f"  - Right hand: {self.cfg.right_hand_topic}")
+                if self.cfg.dual_arm_topic:  # 新增：打印双臂控制topic
+                    print(f"  - Dual arm: {self.cfg.dual_arm_topic}")
                 
             except ImportError as e:
                 # Method 2: Try using extension manager API
@@ -106,6 +111,8 @@ class ROS2BridgeDevice(DeviceBase):
                         print(f"ROS2 Bridge device initialized. Subscribed to:")
                         print(f"  - Left hand: {self.cfg.left_hand_topic}")
                         print(f"  - Right hand: {self.cfg.right_hand_topic}")
+                        if self.cfg.dual_arm_topic:  # 新增：打印双臂控制topic
+                            print(f"  - Dual arm: {self.cfg.dual_arm_topic}")
                     else:
                         raise ImportError("ROS2 Bridge extension is not enabled")
                         
@@ -159,15 +166,35 @@ class ROS2BridgeDevice(DeviceBase):
             )
             self._right_hand_node = nodes[-1]
             
+            # 新增：创建双臂控制subscriber节点
+            if self.cfg.dual_arm_topic:
+                (graph, nodes, _, _) = og.Controller.edit(
+                    {"graph_path": "/ROS2BridgeDevice/DualArmSubscriber", "evaluator_name": "execution"},
+                    {
+                        og.Controller.Keys.CREATE_NODES: [
+                            ("OnPlaybackTick", "omni.graph.action.OnPlaybackTick"),
+                            ("DualArmSubscriber", "isaacsim.ros2.bridge.ROS2SubscribeJointState"),
+                        ],
+                        og.Controller.Keys.SET_VALUES: [
+                            ("DualArmSubscriber.inputs:topicName", self.cfg.dual_arm_topic),
+                        ],
+                        og.Controller.Keys.CONNECT: [
+                            ("OnPlaybackTick.outputs:tick", "DualArmSubscriber.inputs:execIn"),
+                        ],
+                    },
+                )
+                self._dual_arm_node = nodes[-1]
+            
             print("ROS2 subscriber nodes created successfully")
             
         except Exception as e:
             print(f"Failed to create ROS2 subscriber nodes: {e}")
 
-    def _get_joint_data_from_node(self, node):
-        """Extract joint position data from ROS2 subscriber node."""
+    def _get_joint_data_from_node(self, node, node_name="unknown"):
+        """Extract joint position data from ROS2 subscriber node with detailed debugging."""
         try:
             if node is None:
+                print(f"DEBUG: {node_name} node is None")
                 return None
                 
             # Get the output data from the node - FIXED: use positionCommand for ROS2SubscribeJointState
@@ -176,10 +203,16 @@ class ROS2BridgeDevice(DeviceBase):
                 position_command = position_command_attr.get()
                 if position_command is not None and len(position_command) > 0:
                     # FIXED: Return as 2D tensor with shape (1, num_joints)
-                    return torch.tensor(position_command, dtype=torch.float32).unsqueeze(0)
-                    
+                    tensor_data = torch.tensor(position_command, dtype=torch.float32).unsqueeze(0)
+                    print(f"DEBUG: {node_name} data received - shape: {tensor_data.shape}, values: {tensor_data}")
+                    return tensor_data
+                else:
+                    print(f"DEBUG: {node_name} position command is None or empty")
+            else:
+                print(f"DEBUG: {node_name} positionCommand attribute not found")
+                
         except Exception as e:
-            print(f"Error getting joint data from node: {e}")
+            print(f"Error getting joint data from {node_name} node: {e}")
             
         return None
 
@@ -214,12 +247,16 @@ class ROS2BridgeDevice(DeviceBase):
             
         if (current_time - self._last_message_time["right"]) > self.cfg.message_timeout:
             self._right_hand_data = None
+            
+        if (current_time - self._last_message_time["dual_arm"]) > self.cfg.message_timeout:
+            self._dual_arm_data = None
 
     def reset(self):
         """Reset the device state."""
         self._left_hand_data = None
         self._right_hand_data = None
-        self._last_message_time = {"left": 0.0, "right": 0.0}
+        self._dual_arm_data = None  # 新增：重置双臂数据
+        self._last_message_time = {"left": 0.0, "right": 0.0, "dual_arm": 0.0}
         print("ROS2 Bridge device reset")
 
     def add_callback(self, key: str, func: Any):
@@ -232,47 +269,93 @@ class ROS2BridgeDevice(DeviceBase):
         self._callbacks[key] = func
 
     def _get_raw_data(self) -> torch.Tensor:
-        """Get raw joint data from ROS2 Bridge subscribers.
-        
-        Returns:
-            torch.Tensor: Raw joint data with shape (1, 50) containing both hands (25 left + 25 right)
-        """
+        """Get raw joint data from ROS2 Bridge subscribers."""
         self._check_message_timeout()
+
+        print(f"DEBUG: === Starting data collection cycle ===")
+        
+        # 优先获取双臂控制数据（14个关节）
+        dual_arm_data = None
+        if self._dual_arm_node is not None:
+            dual_arm_data = self._get_joint_data_from_node(self._dual_arm_node, "dual_arm")
+            if dual_arm_data is not None:
+                self._dual_arm_data = dual_arm_data
+                self._last_message_time["dual_arm"] = time.time()
+                print(f"DEBUG: Dual arm data stored with shape: {dual_arm_data.shape}")
+            else:
+                print("DEBUG: No dual arm data received from node - checking topic status")
+        else:
+            print("DEBUG: Dual arm node is None - topic may not be configured")
 
         # 获取左手数据（25个关节）
         left_data = None
         if self._left_hand_node is not None:
-            left_data = self._get_joint_data_from_node(self._left_hand_node)
+            left_data = self._get_joint_data_from_node(self._left_hand_node, "left_hand")
             if left_data is not None:
                 self._left_hand_data = left_data
                 self._last_message_time["left"] = time.time()
-        
+                print(f"DEBUG: Left hand data stored with shape: {left_data.shape}")
+
         # 获取右手数据（25个关节）
         right_data = None
         if self._right_hand_node is not None:
-            right_data = self._get_joint_data_from_node(self._right_hand_node)
+            right_data = self._get_joint_data_from_node(self._right_hand_node, "right_hand")
             if right_data is not None:
                 self._right_hand_data = right_data
                 self._last_message_time["right"] = time.time()
+                print(f"DEBUG: Right hand data stored with shape: {right_data.shape}")
+
+        # 合并数据：双臂14个关节 + 手部50个关节 = 总共64个关节
+        combined_data_parts = []
         
-        # 合并双手数据：左手25个关节 + 右手25个关节 = 总共50个关节
-        if self._left_hand_data is not None and self._right_hand_data is not None:
-            # 如果双手数据都可用，合并它们
-            combined_data = torch.cat([self._left_hand_data, self._right_hand_data], dim=1)
-            return combined_data
-        elif self._left_hand_data is not None:
-            # 只有左手数据可用，右手用零填充
-            right_zeros = torch.zeros_like(self._left_hand_data)
-            combined_data = torch.cat([self._left_hand_data, right_zeros], dim=1)
-            return combined_data
-        elif self._right_hand_data is not None:
-            # 只有右手数据可用，左手用零填充
-            left_zeros = torch.zeros_like(self._right_hand_data)
-            combined_data = torch.cat([left_zeros, self._right_hand_data], dim=1)
-            return combined_data
+        # 添加双臂数据（前14个关节）
+        if self._dual_arm_data is not None:
+            if self._dual_arm_data.shape[1] >= 14:
+                arm_data = self._dual_arm_data[:, :14]
+                combined_data_parts.append(arm_data)
+                print(f"DEBUG: Using dual arm data with shape: {arm_data.shape}, values: {arm_data}")
+            else:
+                padding = torch.zeros(1, 14 - self._dual_arm_data.shape[1], dtype=torch.float32)
+                arm_data = torch.cat([self._dual_arm_data, padding], dim=1)
+                combined_data_parts.append(arm_data)
+                print(f"DEBUG: Padded dual arm data to shape: {arm_data.shape}")
         else:
-            # 都没有数据，返回50个零
-            return torch.zeros(1, 50, dtype=torch.float32)
+            arm_data = torch.zeros(1, 14, dtype=torch.float32)
+            combined_data_parts.append(arm_data)
+            print("DEBUG: Using zero padding for dual arm data")
+
+        # 添加手部数据（后50个关节）
+        if self._left_hand_data is not None and self._right_hand_data is not None:
+            hand_data = torch.cat([self._left_hand_data, self._right_hand_data], dim=1)
+            combined_data_parts.append(hand_data)
+            print(f"DEBUG: Combined hand data with shape: {hand_data.shape}")
+        elif self._left_hand_data is not None:
+            right_zeros = torch.zeros_like(self._left_hand_data)
+            hand_data = torch.cat([self._left_hand_data, right_zeros], dim=1)
+            combined_data_parts.append(hand_data)
+            print(f"DEBUG: Left hand only with shape: {hand_data.shape}")
+        elif self._right_hand_data is not None:
+            left_zeros = torch.zeros_like(self._right_hand_data)
+            hand_data = torch.cat([left_zeros, self._right_hand_data], dim=1)
+            combined_data_parts.append(hand_data)
+            print(f"DEBUG: Right hand only with shape: {hand_data.shape}")
+        else:
+            hand_data = torch.zeros(1, 50, dtype=torch.float32)
+            combined_data_parts.append(hand_data)
+            print("DEBUG: Using zero padding for hand data")
+        
+        # 合并所有数据
+        combined_data = torch.cat(combined_data_parts, dim=1)
+        
+        # 确保最终数据有64个关节
+        if combined_data.shape[1] < 64:
+            padding = torch.zeros(1, 64 - combined_data.shape[1], dtype=torch.float32)
+            combined_data = torch.cat([combined_data, padding], dim=1)
+            print(f"DEBUG: Final padding to 64 joints: {combined_data.shape}")
+        
+        print(f"DEBUG: Final combined data shape: {combined_data.shape}, values: {combined_data}")
+        print(f"DEBUG: === Data collection cycle completed ===\n")
+        return combined_data
 
     def advance(self) -> torch.Tensor:
         """Get the latest commands from the ROS2 Bridge device.
@@ -311,6 +394,7 @@ class ROS2BridgeDeviceCfg(DeviceCfg):
     # ROS2 topic names for left and right hand joint states
     left_hand_topic: str = "/cb_left_hand_control_cmd"
     right_hand_topic: str = "/cb_right_hand_control_cmd"
+    dual_arm_topic: str = "/cb_arm_control_cmd"  # 新增：双臂控制topic
     
     # Timeout for receiving messages (seconds)
     message_timeout: float = 1.0

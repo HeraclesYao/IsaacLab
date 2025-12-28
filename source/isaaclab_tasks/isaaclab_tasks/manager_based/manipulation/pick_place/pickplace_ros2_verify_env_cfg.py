@@ -93,20 +93,21 @@ class SimpleActionsCfg:
         asset_name="robot",
         joint_names=[
             # Arm joints (14 joints total for both arms)
-            "right_shoulder_pitch_joint",
-            "right_shoulder_roll_joint",
-            "right_shoulder_yaw_joint",
-            "right_elbow_joint",
-            "right_wrist_yaw_joint",
-            "right_wrist_roll_joint",
-            "right_wrist_pitch_joint",
-            "left_shoulder_pitch_joint",
-            "left_shoulder_roll_joint",
-            "left_shoulder_yaw_joint",
-            "left_elbow_joint",
-            "left_wrist_yaw_joint",
-            "left_wrist_roll_joint",
-            "left_wrist_pitch_joint",
+            "left_shoulder_pitch_joint",     ## 0  负前，正后
+            "right_shoulder_pitch_joint",    ## 1  负前，正后
+            "left_shoulder_yaw_joint",     ## 2  负内，正外
+            "right_shoulder_yaw_joint",     ## 3  负外，正内
+            "left_shoulder_roll_joint",     ## 4  负内，正外
+            "right_shoulder_roll_joint",     ## 5  负外，正内
+            "left_elbow_joint",              ## 6  负前，正后
+            "right_elbow_joint",              ## 7 负前，正后
+            "left_wrist_yaw_joint",           ## 8  负前，正后
+            "right_wrist_yaw_joint",         ## 9  负前，正后
+            "left_wrist_pitch_joint",            ## 10  负内，正外
+            "right_wrist_pitch_joint",        ## 11  负内，正外
+            "left_wrist_roll_joint",             ## 12  负内，正外
+            "right_wrist_roll_joint",        ## 13  负内，正外
+
             # Hand joints (24 joints total for both hands)
             "L_index_proximal_joint",               # index 14 左手食指
             "L_middle_proximal_joint",               # index 15 左手中指
@@ -216,18 +217,18 @@ class PickPlaceG1ROS2VerifyEnvCfg(ManagerBasedRLEnvCfg):
                 "ros2_gloves": ROS2BridgeDeviceCfg(
                     left_hand_topic="/cb_left_hand_control_cmd",
                     right_hand_topic="/cb_right_hand_control_cmd",
+                    dual_arm_topic="/cb_arm_control_cmd",  # 新增：双臂控制topic
                     message_timeout=1.0,
                     use_isaacsim_bridge=True,
-                    # Remove retargeters configuration
                     # retargeters=[
                     #     UnitreeG1RetargeterCfg(
                     #         enable_visualization=True,
                     #         num_open_xr_hand_joints=2 * 26,
                     #         sim_device=self.sim.device,
-                    #         hand_joint_names=self.actions.joint_pos_cfg.joint_names[-24:],  # Last 24 are hand joints
+                    #         hand_joint_names=self.actions.pink_ik_cfg.hand_joint_names,
                     #     ),
                     # ],
-                    # 添加数据转换器
+                    # sim_device=self.sim.device,
                     retargeters=[G1RetargeterCfg()]
                 ),
             },

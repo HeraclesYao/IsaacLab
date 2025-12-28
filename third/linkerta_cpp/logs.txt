@@ -1,0 +1,22 @@
+yaoyh-4090@yaoyh4090-NONE:~/workspace/linkerta_cpp$ rm ./calibration.txt 
+yaoyh-4090@yaoyh4090-NONE:~/workspace/linkerta_cpp$ ros2 run linkerta linkerta calibrate
+2025-12-27 19:56:55.382 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7417: open_and_lock_file failed -> Function open_port_internal
+2025-12-27 19:56:55.383 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7423: open_and_lock_file failed -> Function open_port_internal
+2025-12-27 19:56:55.383 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7427: open_and_lock_file failed -> Function open_port_internal
+2025-12-27 19:56:55.383 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7429: open_and_lock_file failed -> Function open_port_internal
+2025-12-27 19:56:55.383 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7431: open_and_lock_file failed -> Function open_port_internal
+2025-12-27 19:56:55.383 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7433: open_and_lock_file failed -> Function open_port_internal
+2025-12-27 19:56:55.383 [RTPS_TRANSPORT_SHM Error] Failed init_port fastrtps_port7437: open_and_lock_file failed -> Function open_port_internal
+[INFO] [1766833015.391630697] [linkerta_node]: 运行模式：标定模式（获取原始值）
+Succeeded to open the port!
+Succeeded to change the baudrate!
+GroupBulkRead parameter setup complete.
+[INFO] [1766833015.392174035] [linkerta_node]: 开始标定，请将机械臂置于零位...
+^X^Z
+[13]+  Stopped                 ros2 run linkerta linkerta calibrate
+
+
+
+
+yaoyh-4090@yaoyh4090-NONE:~/workspace/linkerta_cpp$ ros2 topic echo /cb_arm_control_cmd
+Cannot echo topic '/cb_arm_control_cmd', as it contains more than one type: [sensor_msgs/msg/JointState, std_msgs/msg/Float64MultiArray]

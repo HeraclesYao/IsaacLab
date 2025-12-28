@@ -168,7 +168,7 @@ cd /home/yaoyh-4090/IsaacLab
 
 ./isaaclab.sh -p scripts/environments/teleoperation/teleop_se3_agent.py --task Isaac-Stack-Cube-Franka-IK-Rel-v0 --num_envs 1 --teleop_device keyboard
 
-souce /opt/ros/humble/setup.bash
+source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=0
 export ROS_LOCALHOST_ONLY=0
 ./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py
@@ -191,7 +191,6 @@ cd /home/yaoyh-4090/IsaacLab/third/linkerhand-ros-teleop-main/linkertelopsdk/ros
 source /opt/ros/humble/setup.bash
 colcon build
 ```
-
 ## 启动灵巧手接收程序。
 ```bash
 conda deactivate
@@ -214,6 +213,32 @@ ros2 topic echo /cb_right_hand_control_cmd
 ros2 topic info /cb_left_hand_control_cmd
 ros2 topic info /cb_right_hand_control_cmd
 ```
+
+
+## 编译LinkerTA接收程序
+```bash
+conda deactivate
+cd /home/yaoyh-4090/IsaacLab/third/linkerta_cpp
+source /opt/ros/humble/setup.bash
+colcon build
+```
+## 启动LinkerTA接收程序。
+```bash
+conda deactivate
+cd /home/yaoyh-4090/IsaacLab/third/linkerta_cpp
+source /opt/ros/humble/setup.bash
+source ./install/setup.bash
+# 运行程序
+ros2 run linkerta linkerta calibrate  # 标定模式
+# 或
+ros2 run linkerta linkerta normal     # 正常模式
+
+ros2 topic echo /cb_arm_control_cmd
+
+# ros2 topic echo /cb_arm_control_cmd std_msgs/msg/Float64MultiArray
+```
+
+
 
 ## 创建新task Isaac-Linkhand-Direct-v0 Isaac-Linkerhand-v0
 ```bash

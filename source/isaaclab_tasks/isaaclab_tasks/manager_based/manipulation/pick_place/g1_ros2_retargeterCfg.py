@@ -21,15 +21,17 @@ class G1Retargeter(RetargeterBase):
         self._call_count = 0
         
         print(f"G1Retargeter initialized:")
-        print(f"  Input: 50 joint angles in radians (25 left + 25 right)")
+        print(f"  Input: 64 joint angles in radians (14 dual arm + 25 left hand + 25 right hand)")
         print(f"  Output: 38 G1 robot joint angles in radians")
 
     def retarget(self, data: torch.Tensor) -> torch.Tensor:
         """Convert input joint angles in radians to G1 robot joint angles.
         
         Args:
-            data: Input tensor with shape (batch_size, 50) containing joint angles in radians
-                  从ROS接收的50个关节角度数据（25左手 + 25右手，弧度）
+            data: Input tensor with shape (batch_size, 64) containing joint angles in radians
+                  从ROS接收的64个关节角度数据：
+                  - 前14个：双臂数据（前7个左臂，后7个右臂）
+                  - 后50个：手部数据（25左手 + 25右手，弧度）
             
         Returns:
             Tensor with shape (batch_size, 38) containing G1 robot joint angles in radians
@@ -43,18 +45,36 @@ class G1Retargeter(RetargeterBase):
         joint_angles = torch.zeros((1, 38))
         
         # 检查输入数据维度
-        if data.shape[1] < 50:
-            print(f"Warning: Expected 50 input joint angles (25 left + 25 right), got {data.shape[1]}")
+        if data.shape[1] < 64:
+            print(f"Warning: Expected 64 input joint angles (14 dual arm + 50 hands), got {data.shape[1]}")
             # 使用默认值填充
-            default_data = torch.cat([data, torch.zeros((1, 50 - data.shape[1]))], dim=1)
+            default_data = torch.cat([data, torch.zeros((1, 64 - data.shape[1]))], dim=1)
             input_data = default_data
         else:
             input_data = data
         
-        # 分离左手和右手数据
-        left_hand_data = input_data[0, 0:25]  # 前25个是左手数据
-        right_hand_data = input_data[0, 25:50]  # 后25个是右手数据
+        # 分离数据：前14个是双臂数据，后50个是手部数据
+        dual_arm_data = input_data[0, 0:14]    # 前14个：双臂数据（前7左臂，后7右臂）
+        hand_data = input_data[0, 14:64]       # 后50个：手部数据（25左手 + 25右手）
         
+        # 分离手部数据
+        left_hand_data = hand_data[0:25]       # 前25个是左手数据
+        right_hand_data = hand_data[25:50]     # 后25个是右手数据
+        
+        # 使用双臂数据控制手臂关节（前7个左臂，后7个右臂）
+        # 左手臂关节索引
+        left_arm_indices = [0,2,4,6,8,10,12]
+        left_arm_negate = [1,1,-1,1,1,1,1]  # 左臂数据需要取反
+        for i in range(7):
+            joint_angles[0, left_arm_indices[i]] = dual_arm_data[i] * left_arm_negate[i]  # 前7个是左臂数据
+        # joint_angles[0, 7] = -0.8  # 前7个是左臂数据
+        
+        # # 右手臂关节索引
+        right_arm_indices = [1,3,5,7,9,11,13]
+        right_arm_negate = [-1,1,-1,1,1,-1,1]  # 右臂数据需要取反
+        for i in range(7):
+            joint_angles[0, right_arm_indices[i]] = dual_arm_data[7 + i] * right_arm_negate[i]  # 后7个是右臂数据
+
         # 根据udexreal_free.py的映射关系，但直接使用弧度值而不是0-255转换
         # 右手映射（基于RightHand.joint_update方法的比例系数）- 使用右手数据
         # 拇指
@@ -102,23 +122,17 @@ class G1Retargeter(RetargeterBase):
         joint_angles[0, 17] = left_hand_data[14]          # L_ring_proximal_joint
         joint_angles[0, 27] = left_hand_data[15]          # L_ring_intermediate_joint
         
-        # 手臂关节保持默认位置（0弧度）
-        # 右手臂关节索引 0-6
-        # 左手臂关节索引 7-13
-        for i in range(14):
-            joint_angles[0, i] = 0.0
-
         # 增加调用计数器
         self._call_count += 1
         
         # 打印调试信息（每100次调用打印一次）
         if self._call_count % 100 == 0:
             print(f"Retargeter调用次数: {self._call_count}")
+            print(f"左臂数据范围: {torch.min(dual_arm_data[0:7])} - {torch.max(dual_arm_data[0:7])}")
+            print(f"右臂数据范围: {torch.min(dual_arm_data[7:14])} - {torch.max(dual_arm_data[7:14])}")
             print(f"左手数据范围: {torch.min(left_hand_data)} - {torch.max(left_hand_data)}")
             print(f"右手数据范围: {torch.min(right_hand_data)} - {torch.max(right_hand_data)}")
             print(f"输出关节角度范围: {torch.min(joint_angles)} - {torch.max(joint_angles)}")
-            print(f"右手拇指关节: {joint_angles[0, 23]:.3f}, {joint_angles[0, 33]:.3f}, {joint_angles[0, 35]:.3f}, {joint_angles[0, 37]:.3f}")
-            print(f"左手拇指关节: {joint_angles[0, 18]:.3f}, {joint_angles[0, 28]:.3f}, {joint_angles[0, 34]:.3f}, {joint_angles[0, 36]:.3f}")
 
         return joint_angles
 
@@ -139,12 +153,12 @@ class G1RetargeterCfg(RetargeterCfg):
         torch.tensor([3.14] * 38)    # 约180度
     )
     
-    # 输入数据范围（弧度）- 50个关节角度（25左手 + 25右手）
+    # 输入数据范围（弧度）- 64个关节角度（14双臂 + 50手部）
     input_range = (
         # 下限
-        torch.tensor([-3.14] * 50),  # 约-180度
+        torch.tensor([-3.14] * 64),  # 约-180度
         # 上限  
-        torch.tensor([3.14] * 50)    # 约180度
+        torch.tensor([3.14] * 64)    # 约180度
     )
     
     # 正确设置retargeter_type
