@@ -45,6 +45,9 @@ def main():
         if args_cli.task == "Isaac-PickPlace-G1-InspireFTP-Abs-v0":
             from isaaclab_tasks.manager_based.manipulation.pick_place.pickplace_ros2_verify_env_cfg import PickPlaceG1ROS2VerifyEnvCfg
             env_cfg = PickPlaceG1ROS2VerifyEnvCfg()
+        elif args_cli.task == "Isaac-Rokae-v0":
+            from isaaclab_tasks.manager_based.rokae.rokae_env_cfg import RokaeEnvCfg
+            env_cfg = RokaeEnvCfg()
         elif args_cli.task == "Isaac-Linkerhand-v0":
             from isaaclab_tasks.manager_based.linkerhand.linkerhand_env_cfg import LinkerhandEnvCfg
             env_cfg = LinkerhandEnvCfg()

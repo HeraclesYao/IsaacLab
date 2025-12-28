@@ -1,107 +1,54 @@
-✗ Failed to create environment: Not all regular expressions are matched! Please check that the regular expressions are correct: 
-    left_shoulder_pitch_joint111111111111: []
-    left_shoulder_roll_joint: ['left_shoulder_roll_joint']
-    left_shoulder_yaw_joint: ['left_shoulder_yaw_joint']
-    left_elbow_joint: ['left_elbow_joint']
-    left_wrist_yaw_joint: ['left_wrist_yaw_joint']
-    left_wrist_roll_joint: ['left_wrist_roll_joint']
-    left_wrist_pitch_joint: ['left_wrist_pitch_joint']
-    right_shoulder_pitch_joint: ['right_shoulder_pitch_joint']
-    right_shoulder_roll_joint: ['right_shoulder_roll_joint']
-    right_shoulder_yaw_joint: ['right_shoulder_yaw_joint']
-    right_elbow_joint: ['right_elbow_joint']
-    right_wrist_yaw_joint: ['right_wrist_yaw_joint']
-    right_wrist_roll_joint: ['right_wrist_roll_joint']
-    right_wrist_pitch_joint: ['right_wrist_pitch_joint']
-    L_index_proximal_joint: ['L_index_proximal_joint']
-    L_middle_proximal_joint: ['L_middle_proximal_joint']
-    L_pinky_proximal_joint: ['L_pinky_proximal_joint']
-    L_ring_proximal_joint: ['L_ring_proximal_joint']
-    L_thumb_proximal_yaw_joint: ['L_thumb_proximal_yaw_joint']
-    R_index_proximal_joint: ['R_index_proximal_joint']
-    R_middle_proximal_joint: ['R_middle_proximal_joint']
-    R_pinky_proximal_joint: ['R_pinky_proximal_joint']
-    R_ring_proximal_joint: ['R_ring_proximal_joint']
-    R_thumb_proximal_yaw_joint: ['R_thumb_proximal_yaw_joint']
-    L_index_intermediate_joint: ['L_index_intermediate_joint']
-    L_middle_intermediate_joint: ['L_middle_intermediate_joint']
-    L_pinky_intermediate_joint: ['L_pinky_intermediate_joint']
-    L_ring_intermediate_joint: ['L_ring_intermediate_joint']
-    L_thumb_proximal_pitch_joint: ['L_thumb_proximal_pitch_joint']
-    R_index_intermediate_joint: ['R_index_intermediate_joint']
-    R_middle_intermediate_joint: ['R_middle_intermediate_joint']
-    R_pinky_intermediate_joint: ['R_pinky_intermediate_joint']
-    R_ring_intermediate_joint: ['R_ring_intermediate_joint']
-    R_thumb_proximal_pitch_joint: ['R_thumb_proximal_pitch_joint']
-    L_thumb_intermediate_joint: ['L_thumb_intermediate_joint']
-    R_thumb_intermediate_joint: ['R_thumb_intermediate_joint']
-    L_thumb_distal_joint: ['L_thumb_distal_joint']
-    R_thumb_distal_joint: ['R_thumb_distal_joint']
-Available strings: ['left_hip_pitch_joint', 'right_hip_pitch_joint', 'waist_yaw_joint', 'left_hip_roll_joint', 'right_hip_roll_joint', 'waist_roll_joint', 'left_hip_yaw_joint', 'right_hip_yaw_joint', 'waist_pitch_joint', 'left_knee_joint', 'right_knee_joint', 'left_shoulder_pitch_joint', 'right_shoulder_pitch_joint', 'left_ankle_pitch_joint', 'right_ankle_pitch_joint', 'left_shoulder_roll_joint', 'right_shoulder_roll_joint', 'left_ankle_roll_joint', 'right_ankle_roll_joint', 'left_shoulder_yaw_joint', 'right_shoulder_yaw_joint', 'left_elbow_joint', 'right_elbow_joint', 'left_wrist_roll_joint', 'right_wrist_roll_joint', 'left_wrist_pitch_joint', 'right_wrist_pitch_joint', 'left_wrist_yaw_joint', 'right_wrist_yaw_joint', 'L_index_proximal_joint', 'L_middle_proximal_joint', 'L_pinky_proximal_joint', 'L_ring_proximal_joint', 'L_thumb_proximal_yaw_joint', 'R_index_proximal_joint', 'R_middle_proximal_joint', 'R_pinky_proximal_joint', 'R_ring_proximal_joint', 'R_thumb_proximal_yaw_joint', 'L_index_intermediate_joint', 'L_middle_intermediate_joint', 'L_pinky_intermediate_joint', 'L_ring_intermediate_joint', 'L_thumb_proximal_pitch_joint', 'R_index_intermediate_joint', 'R_middle_intermediate_joint', 'R_pinky_intermediate_joint', 'R_ring_intermediate_joint', 'R_thumb_proximal_pitch_joint', 'L_thumb_intermediate_joint', 'R_thumb_intermediate_joint', 'L_thumb_distal_joint', 'R_thumb_distal_joint']
+✓ Loaded simplified configuration
+2025-12-28T09:46:00Z [14,237ms] [Warning] [isaaclab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+[INFO] IsaacLab logging to file: /tmp/isaaclab_2025-12-28_18-46-00.log
+[14.299s] [ext: omni.physx.fabric-107.3.26] startup
+18:46:00 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.
+[INFO]: Base environment:
+    Environment device    : cuda:0
+    Environment seed      : None
+    Physics step-size     : 0.008333333333333333
+    Rendering step-size   : 0.016666666666666666
+    Environment step-size : 0.016666666666666666
+2025-12-28T09:46:01Z [14,518ms] [Warning] [omni.usd] Warning: in _ReportErrors at line 3172 of /builds/omniverse/usd-ci/USD/pxr/usd/usd/stage.cpp -- In </World/envs/env_0/Robot/linkerhand_l10_7_left_urdf>: Could not open asset @/home/yaoyh-4090/IsaacLab/assets/linkerhand/hands/linker_hand/l10_left/linkerhand_l10_left/linkerhand_l10_left.usd@ for reference introduced by @/home/yaoyh-4090/IsaacLab/assets/Rokae/Rokae_Robot_l10.usd@</World/linkerhand_l10_7_left_urdf>. (recomposing stage on stage @anon:0x36eeae00:World0.usd@ <0x36eebde0>)
 
+2025-12-28T09:46:01Z [14,518ms] [Warning] [omni.usd] Warning: in _ReportErrors at line 3172 of /builds/omniverse/usd-ci/USD/pxr/usd/usd/stage.cpp -- In </World/envs/env_0/Robot/linkerhand_l10_7_right_urdf>: Could not open asset @/home/yaoyh-4090/IsaacLab/assets/linkerhand/hands/linker_hand/l10_right/linkerhand_l10_right/linkerhand_l10_right.usd@ for reference introduced by @/home/yaoyh-4090/IsaacLab/assets/Rokae/Rokae_Robot_l10.usd@</World/linkerhand_l10_7_right_urdf>. (recomposing stage on stage @anon:0x36eeae00:World0.usd@ <0x36eebde0>)
+
+2025-12-28T09:46:01Z [14,518ms] [Warning] [omni.usd] Warning: in _ReportErrors at line 3172 of /builds/omniverse/usd-ci/USD/pxr/usd/usd/stage.cpp -- In </World/envs/env_0/Robot/wheel_robot/world/visuals>: Unresolved reference prim path @/home/yaoyh-4090/IsaacLab/assets/Rokae/robot_model/urdf/wheel_robot/configuration/wheel_robot_physics.usd@</visuals/world> introduced by @/home/yaoyh-4090/IsaacLab/assets/Rokae/robot_model/urdf/wheel_robot/configuration/wheel_robot_base.usd@</robot_model/world/visuals> (recomposing stage on stage @anon:0x36eeae00:World0.usd@ <0x36eebde0>)
+
+[INFO]: Time taken for scene creation : 0.783236 seconds
+[INFO]: Scene manager:  <class InteractiveScene>
+    Number of environments: 1
+    Environment spacing   : 4.0
+    Source prim name      : /World/envs/env_0
+    Global prim paths     : []
+    Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+18:46:02 [actuator_pd.py] WARNING: The <ImplicitActuatorCfg> object has a value for 'effort_limit'. This parameter will be removed in the future. To set the effort limit, please use 'effort_limit_sim' instead.
+18:46:02 [actuator_pd.py] WARNING: The <ImplicitActuatorCfg> object has a value for 'velocity_limit'. Previously, although this value was specified, it was not getting used by implicit actuators. Since this parameter affects the simulation behavior, we continue to not use it. This parameter will be removed in the future. To set the velocity limit, please use 'velocity_limit_sim' instead.
+18:46:02 [articulation.py] WARNING: Not all actuators are configured! Total number of actuated joints not equal to number of joints available: 16 != 22.
 Traceback (most recent call last):
-  File "/home/yaoyh-4090/IsaacLab/scripts/environments/teleoperation/teleop_ros2_verify.py", line 63, in main
-    env = ManagerBasedEnv(env_cfg)
-          ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/manager_based_env.py", line 177, in __init__
-    self.load_managers()
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/manager_based_env.py", line 313, in load_managers
-    self.action_manager = ActionManager(self.cfg.actions, self)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/action_manager.py", line 212, in __init__
-    super().__init__(cfg, env)
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/manager_base.py", line 176, in __init__
-    self._prepare_terms()
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/action_manager.py", line 448, in _prepare_terms
-    term = term_cfg.class_type(term_cfg, self._env)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/mdp/actions/joint_actions.py", line 191, in __init__
-    super().__init__(cfg, env)
-  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/envs/mdp/actions/joint_actions.py", line 64, in __init__
-    self._joint_ids, self._joint_names = self._asset.find_joints(
-                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/manager_base.py", line 400, in _process_term_cfg_at_play
+    value.resolve(self._env.scene)
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/scene_entity_cfg.py", line 134, in resolve
+    self._resolve_joint_names(scene)
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/scene_entity_cfg.py", line 168, in _resolve_joint_names
+    self.joint_ids, _ = entity.find_joints(self.joint_names, preserve_order=self.preserve_order)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/assets/articulation/articulation.py", line 267, in find_joints
     return string_utils.resolve_matching_names(name_keys, joint_subset, preserve_order)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/utils/string.py", line 267, in resolve_matching_names
     raise ValueError(
 ValueError: Not all regular expressions are matched! Please check that the regular expressions are correct: 
-    left_shoulder_pitch_joint111111111111: []
-    left_shoulder_roll_joint: ['left_shoulder_roll_joint']
-    left_shoulder_yaw_joint: ['left_shoulder_yaw_joint']
-    left_elbow_joint: ['left_elbow_joint']
-    left_wrist_yaw_joint: ['left_wrist_yaw_joint']
-    left_wrist_roll_joint: ['left_wrist_roll_joint']
-    left_wrist_pitch_joint: ['left_wrist_pitch_joint']
-    right_shoulder_pitch_joint: ['right_shoulder_pitch_joint']
-    right_shoulder_roll_joint: ['right_shoulder_roll_joint']
-    right_shoulder_yaw_joint: ['right_shoulder_yaw_joint']
-    right_elbow_joint: ['right_elbow_joint']
-    right_wrist_yaw_joint: ['right_wrist_yaw_joint']
-    right_wrist_roll_joint: ['right_wrist_roll_joint']
-    right_wrist_pitch_joint: ['right_wrist_pitch_joint']
-    L_index_proximal_joint: ['L_index_proximal_joint']
-    L_middle_proximal_joint: ['L_middle_proximal_joint']
-    L_pinky_proximal_joint: ['L_pinky_proximal_joint']
-    L_ring_proximal_joint: ['L_ring_proximal_joint']
-    L_thumb_proximal_yaw_joint: ['L_thumb_proximal_yaw_joint']
-    R_index_proximal_joint: ['R_index_proximal_joint']
-    R_middle_proximal_joint: ['R_middle_proximal_joint']
-    R_pinky_proximal_joint: ['R_pinky_proximal_joint']
-    R_ring_proximal_joint: ['R_ring_proximal_joint']
-    R_thumb_proximal_yaw_joint: ['R_thumb_proximal_yaw_joint']
-    L_index_intermediate_joint: ['L_index_intermediate_joint']
-    L_middle_intermediate_joint: ['L_middle_intermediate_joint']
-    L_pinky_intermediate_joint: ['L_pinky_intermediate_joint']
-    L_ring_intermediate_joint: ['L_ring_intermediate_joint']
-    L_thumb_proximal_pitch_joint: ['L_thumb_proximal_pitch_joint']
-    R_index_intermediate_joint: ['R_index_intermediate_joint']
-    R_middle_intermediate_joint: ['R_middle_intermediate_joint']
-    R_pinky_intermediate_joint: ['R_pinky_intermediate_joint']
-    R_ring_intermediate_joint: ['R_ring_intermediate_joint']
-    R_thumb_proximal_pitch_joint: ['R_thumb_proximal_pitch_joint']
-    L_thumb_intermediate_joint: ['L_thumb_intermediate_joint']
-    R_thumb_intermediate_joint: ['R_thumb_intermediate_joint']
-    L_thumb_distal_joint: ['L_thumb_distal_joint']
-    R_thumb_distal_joint: ['R_thumb_distal_joint']
-Available strings: ['left_hip_pitch_joint', 'right_hip_pitch_joint', 'waist_yaw_joint', 'left_hip_roll_joint', 'right_hip_roll_joint', 'waist_roll_joint', 'left_hip_yaw_joint', 'right_hip_yaw_joint', 'waist_pitch_joint', 'left_knee_joint', 'right_knee_joint', 'left_shoulder_pitch_joint', 'right_shoulder_pitch_joint', 'left_ankle_pitch_joint', 'right_ankle_pitch_joint', 'left_shoulder_roll_joint', 'right_shoulder_roll_joint', 'left_ankle_roll_joint', 'right_ankle_roll_joint', 'left_shoulder_yaw_joint', 'right_shoulder_yaw_joint', 'left_elbow_joint', 'right_elbow_joint', 'left_wrist_roll_joint', 'right_wrist_roll_joint', 'left_wrist_pitch_joint', 'right_wrist_pitch_joint', 'left_wrist_yaw_joint', 'right_wrist_yaw_joint', 'L_index_proximal_joint', 'L_middle_proximal_joint', 'L_pinky_proximal_joint', 'L_ring_proximal_joint', 'L_thumb_proximal_yaw_joint', 'R_index_proximal_joint', 'R_middle_proximal_joint', 'R_pinky_proximal_joint', 'R_ring_proximal_joint', 'R_thumb_proximal_yaw_joint', 'L_index_intermediate_joint', 'L_middle_intermediate_joint', 'L_pinky_intermediate_joint', 'L_ring_intermediate_joint', 'L_thumb_proximal_pitch_joint', 'R_index_intermediate_joint', 'R_middle_intermediate_joint', 'R_pinky_intermediate_joint', 'R_ring_intermediate_joint', 'R_thumb_proximal_pitch_joint', 'L_thumb_intermediate_joint', 'R_thumb_intermediate_joint', 'L_thumb_distal_joint', 'R_thumb_distal_joint']
+    slider_to_cart: []
+Available strings: ['chassis_left_Joint', 'chassis_right_Joint', 'Trunk_Joint1', 'Trunk_Joint2', 'Trunk_Joint3', 'Trunk_Joint4', 'AR5_5_07L_joint_1', 'AR5_5_07R_joint_1', 'Head_Joint1', 'AR5_5_07L_joint_2', 'AR5_5_07R_joint_2', 'Head_Joint2', 'AR5_5_07L_joint_3', 'AR5_5_07R_joint_3', 'AR5_5_07L_joint_4', 'AR5_5_07R_joint_4', 'AR5_5_07L_joint_5', 'AR5_5_07R_joint_5', 'AR5_5_07L_joint_6', 'AR5_5_07R_joint_6', 'AR5_5_07L_joint_7', 'AR5_5_07R_joint_7']
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/yaoyh-4090/IsaacLab/source/isaaclab/isaaclab/managers/manager_base.py", line 402, in _process_term_cfg_at_play
+    raise ValueError(f"Error while parsing '{term_name}:{key}'. {e}")
+ValueError: Error while parsing 'reset_cart_position:asset_cfg'. Not all regular expressions are matched! Please check that the regular expressions are correct: 
+    slider_to_cart: []
+Available strings: ['chassis_left_Joint', 'chassis_right_Joint', 'Trunk_Joint1', 'Trunk_Joint2', 'Trunk_Joint3', 'Trunk_Joint4', 'AR5_5_07L_joint_1', 'AR5_5_07R_joint_1', 'Head_Joint1', 'AR5_5_07L_joint_2', 'AR5_5_07R_joint_2', 'Head_Joint2', 'AR5_5_07L_joint_3', 'AR5_5_07R_joint_3', 'AR5_5_07L_joint_4', 'AR5_5_07R_joint_4', 'AR5_5_07L_joint_5', 'AR5_5_07R_joint_5', 'AR5_5_07L_joint_6', 'AR5_5_07R_joint_6', 'AR5_5_07L_joint_7', 'AR5_5_07R_joint_7']

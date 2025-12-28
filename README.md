@@ -182,6 +182,11 @@ export ROS_LOCALHOST_ONLY=0
     --task Isaac-Linkerhand-v0 \
     --device_name ros2_gloves \
     --num_envs 1
+
+./isaaclab.sh -p scripts/environments/teleoperation/teleop_ros2_verify.py \
+     --task Isaac-Rokae-v0 \
+     --device_name ros2_gloves \
+     --num_envs 1
 ```
 
 ## 编译灵巧手接收程序
@@ -240,7 +245,7 @@ ros2 topic echo /cb_arm_control_cmd
 
 
 
-## 创建新task Isaac-Linkhand-Direct-v0 Isaac-Linkerhand-v0
+## 创建新task Isaac-Linkhand-Direct-v0 Isaac-Linkerhand-v0  Isaac-Rokae-v0
 ```bash
 ./isaaclab.sh --new
 ```
